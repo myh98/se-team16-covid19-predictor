@@ -46,8 +46,6 @@ def signup_hospital(request):
         messages.info(request,'User created!!!')
         return render(request,'signup_hospital.html')
 
-        
-    
     else:
         return render(request,'signup_hospital.html')
 
@@ -144,6 +142,59 @@ def signin(request):
 @csrf_exempt
 def homehospital(request):
     return render(request,'homehospital.html')
+
+@csrf_exempt
+def patientdetail(request):
+    if request.method=='POST':
+        hospital_name=request.POST['hospitalname']
+        pincode=request.POST['pincode']
+        zone=request.POST['zone']
+        active_cases=request.POST['active']
+        recovered_cases = request.POST['recovered']
+        deaths=request.POST['deaths']
+        date=request.POST['date']
+
+        #TODO: handle db part
+
+        return redirect('homehospital') #TODO: is this redirection correct?
+    else:
+        return render(request,'patientform.html')
+
+@csrf_exempt
+def equipmentdetail(request):
+    if request.method=='POST':
+        hospital_name=request.POST['hospitalname']
+        pincode=request.POST['pincode']
+        zone=request.POST['zone']
+        empty_beds=request.POST['emptybeds']
+        occupied_beds = request.POST['occupiedbeds']
+        unoccupied_vent=request.POST['unocc_vent']
+        occupied_vents=request.POST['occ_vent']
+        ppe_kit_count=request.POST['ppe_kit']
+        date=request.POST['date']
+
+        #TODO: handle db part
+
+        return redirect('homehospital') #TODO: is this redirection correct?
+    else:
+        return render(request,'equipmentform.html')
+
+@csrf_exempt
+def requestformdetail(request):
+    if request.method=='POST':
+        hospital_name=request.POST['hospitalname']
+        pincode=request.POST['pincode']
+        zone=request.POST['zone']
+        bed_request = request.POST['bed_req']
+        vent_request = request.POST['vent_req']
+        ppe_request = request.POST['ppe_req']
+        date = request.POST['date']
+
+        #TODO: handle db part
+
+        return redirect('homehospital') #TODO: is this redirection correct?
+    else:
+        return render(request,'requestform.html')
 
 @csrf_exempt
 def register(request):
