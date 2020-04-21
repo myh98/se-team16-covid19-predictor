@@ -43,7 +43,7 @@ def signup_hospital(request):
         user=User.objects.create_user(username=username,email=email,password=password,first_name=firstname,last_name=lastname)
         user.save()
         
-        messages.info(request,'User created!!!')
+        messages.info(request,'Account Created Successfully! You can now Sign In')
         return render(request,'signup_hospital.html')
 
     else:
@@ -68,7 +68,7 @@ def signup_government(request):
 
         query=User.objects.filter(username=username)
         if query.exists():
-            messages.info(request,'User name already exists')
+            messages.info(request,'Sorry! This username already exists. Try again')
             return redirect('signup_government')
             # return HttpResponse("user already exist")
 
@@ -78,7 +78,7 @@ def signup_government(request):
         user=User.objects.create_user(username=username,email=email,password=password,first_name=firstname,last_name=lastname)
         user.save()
         
-        messages.info(request,'User created!!!')
+        messages.info(request,'Account Created Successfully! You can now Sign In')
         return render(request,'signup_government.html')
 
 
@@ -153,6 +153,8 @@ def patientdetail(request):
         recovered_cases = request.POST['recovered']
         deaths=request.POST['deaths']
         date=request.POST['date']
+
+        # messages.info(request,'In patientdetail. With hospital_name') #TODO: how will this work?
 
         #TODO: handle db part
 
