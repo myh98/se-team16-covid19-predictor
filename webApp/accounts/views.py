@@ -5,6 +5,148 @@ from django.shortcuts import redirect
 from accounts.models import ishospital,hospitalinfo
 from django.http import HttpResponse
 from django.contrib import messages
+from pymongo import MongoClient, errors
+Domain='127.0.0.1'
+port=27017
+
+class mongo_DB:
+
+    def __init__(self):
+        self.connection=MongoClient("mongodb://hospit:1234@127.0.0.1/hospit_db")
+        self.db=self.connection.hospit_db
+
+    def insert(self,cl_name,db_entry):
+        # self.db.cl_name.insert_one(db_entry)
+
+        if cl_name=="patient_details":
+            self.db.patient_details.insert_one(db_entry)
+
+        elif cl_name=="equipment_details":
+            self.db.equipment_details.insert_one(db_entry)
+
+        elif cl_name=="request_details":
+            self.db.request_details.insert_one(db_entry)
+
+        elif cl_name=="output_details":
+            self.db.output_details.insert_one(db_entry)
+
+        else:
+            return False 
+
+
+    def check_perDayEntry(self,cl_name,check_entry): # for check entry enter hospit_name zone and date 
+        
+        if cl_name=="patient_details":
+            
+            return (self.db.patient_details.count_documents(check_entry)==1)
+            
+        if cl_name=="equipment_details":
+            
+            return (self.db.equipment_details.count_documents(check_entry)==1)
+
+        if cl_name=="request_details": # Check_entry{'hospit_name':'','zone':,''}
+            
+            return (self.db.request_details.count_documents(check_entry)==1) 
+        
+
+
+    def update(self,cl_name,entry_type,updated_entry):
+
+        if cl_name=="zone_data" and entry_type=='patient_update':
+            #received values
+            
+            zone=updated_entry['zone']
+            
+
+            #find old values
+            db_values=self.db.zone_data.find({'zone':zone})
+            
+            for x in db_values:
+                new_active=int(x['active'])+int(updated_entry['active'])
+                new_recovered=int(x['recovered'])+int(updated_entry['recovered'])
+                new_death=int(x['death'])+int(updated_entry['death'])
+
+            print("new active \n",new_active)
+            #update
+            self.db.zone_data.update_one({"zone":zone},{"$set":{"active":str(new_active),"recovered":str(new_recovered),"death":str(new_death)}})
+
+        elif cl_name=="zone_data" and entry_type=='equipment_update':
+            #received values
+            
+            zone=updated_entry['zone']
+            
+
+            #find old values
+            db_values=self.db.zone_data.find({'zone':zone})
+            for x1 in db_values:
+                new_beds=int(x1['empty_beds'])+int(updated_entry['empty_beds'])
+                new_ven=int(x1['empty_ven'])+int(updated_entry['empty_ven'])
+                new_ppe=int(x1['ppe_stock'])+int(updated_entry['ppe_stock'])
+
+            #update
+            self.db.zone_data.update_one({"zone":zone},{"$set":{"empty_beds":str(new_beds),"empty_ven":str(new_ven),"ppe_stock":str(new_ppe)}})
+
+        else:
+            return False
+
+
+    def entire_collection(self,cl_name): # returns cursor object
+        if cl_name=="patient_details":
+            return self.db.patient_details.find()
+
+        elif cl_name=="equipment_details":
+            return self.db.equipment_details.find()
+
+        elif cl_name=="request_details":
+            return self.db.request_details.find()
+
+        elif cl_name=="output_details":
+            return self.db.output_details.find()
+
+        elif cl_name=="zone_data":
+            return self.db.zone_data.find()
+
+        else:
+            return False 
+        
+    def drop_collection(self,cl_name):
+        
+        if cl_name=='output_details':
+            self.db.output_details.drop()
+
+        elif cl_name=="zone_data":
+            self.db.zone_data.drop()
+            zone_list=['z1','z2','z3','z4']
+
+            for z in zone_list:
+                db_entry={'zone':z,'active':0,'recovered':0,'death':0,'empty_beds':0,'empty_ven':0,'ppe_stock':0}
+                self.db.zone_data.insert_one(db_entry)
+
+        else:
+            return False
+
+    def delete(self,cl_name,db_entry):
+        if cl_name=="patient_details":
+            return self.db.patient_details.delete_many(db_entry)
+
+
+        elif cl_name=="equipment_details":
+            return self.db.equipment_details.delete_many(db_entry)
+
+
+        elif cl_name=="request_details":
+            return self.db.request_details.delete_many(db_entry)
+
+
+        elif cl_name=="output_details":
+            return self.db.output_details.delete_many(db_entry)
+
+
+        elif cl_name=="zone_data":
+            return self.db.zone_data.delete_many(db_entry)
+
+        else:
+            return False 
 
 # Create your views here.
 @csrf_exempt
@@ -156,7 +298,19 @@ def patientdetail(request):
         print("hospital: ", hospital_name)
         # messages.info(request,'In patientdetail. With hospital_name') #TODO: how will this work?
 
-        #TODO: handle db part
+        md = mongo_DB()
+        check_entry = {'name':hospital_name, 'zone':zone, 'date':date}
+        # check_entry = {'name':'hosp1', 'zone':'z1', 'date':'22-04-19'}
+        if md.check_perDayEntry("patient_details", check_entry):
+            print("dup")
+        else:
+            db_entry = {'name':hospital_name, 'pincode':pincode,'zone':zone, 'active':active_cases, 'recovered':recovered_cases, 'death':deaths,'date':date}
+            md.insert("patient_details", db_entry)
+            zone_entry = {'zone':zone, 'active':active_cases,'recovered':recovered_cases, 'death':deaths}
+            
+            md.update("zone_data", 'patient_update', zone_entry)
+            #TODO display saved successfully
+
 
         return redirect('patientdetail') #TODO: is this redirection correct?
     else:
@@ -176,6 +330,19 @@ def equipmentdetail(request):
         date=request.POST['date']
 
         #TODO: handle db part
+        md = mongo_DB()
+        check_entry = {'name':hospital_name, 'zone':zone, 'date':date}
+        # check_entry = {'name':'hosp1', 'zone':'z1', 'date':'22-04-19'}
+        if md.check_perDayEntry("equipment_details", check_entry):
+            print("dup")
+        else:
+            db_entry = {'name':hospital_name, 'pincode':pincode,'zone':zone, 'empty_beds':empty_beds, 'occupied_beds':occupied_beds, 'empty_ven':unoccupied_vent,'occupied_vents':occupied_vents,'ppe_stock':ppe_kit_count,'date':date}
+            md.insert("equipment_details", db_entry)
+            zone_entry = {'zone':zone, 'empty_beds':empty_beds,'empty_ven':unoccupied_vent, 'ppe_stock':ppe_kit_count}
+            
+            md.update("zone_data", 'equipment_update', zone_entry)
+            #TODO display saved successfully
+
 
         print("zone:", zone)
 
@@ -195,6 +362,15 @@ def requestformdetail(request):
         date = request.POST['date']
 
         #TODO: handle db part
+        md = mongo_DB()
+        check_entry = {'hospit_name':hospital_name, 'zone':zone,'date':date}
+        # check_entry = {'name':'hosp1', 'zone':'z1', 'date':'22-04-19'}
+        if md.check_perDayEntry("request_details", check_entry):
+            print("dup")
+        else:
+            db_entry = {'hospit_name':hospital_name,'zone':zone, 'beds':bed_request, 'vent':vent_request,'ppe_stock':ppe_request,'date':date}
+            md.insert("request_details", db_entry)
+
         print("bed_request:", bed_request)
         return redirect('requestformdetail') #TODO: is this redirection correct?
     else:
