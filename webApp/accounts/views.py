@@ -153,12 +153,12 @@ def patientdetail(request):
         recovered_cases = request.POST['recovered']
         deaths=request.POST['deaths']
         date=request.POST['date']
-
+        print("hospital: ", hospital_name)
         # messages.info(request,'In patientdetail. With hospital_name') #TODO: how will this work?
 
         #TODO: handle db part
 
-        return redirect('homehospital') #TODO: is this redirection correct?
+        return redirect('patientdetail') #TODO: is this redirection correct?
     else:
         return render(request,'patientform.html')
 
@@ -177,7 +177,9 @@ def equipmentdetail(request):
 
         #TODO: handle db part
 
-        return redirect('homehospital') #TODO: is this redirection correct?
+        print("zone:", zone)
+
+        return redirect('equipmentdetail') #TODO: is this redirection correct?
     else:
         return render(request,'equipmentform.html')
 
@@ -193,8 +195,8 @@ def requestformdetail(request):
         date = request.POST['date']
 
         #TODO: handle db part
-
-        return redirect('homehospital') #TODO: is this redirection correct?
+        print("bed_request:", bed_request)
+        return redirect('requestformdetail') #TODO: is this redirection correct?
     else:
         return render(request,'requestform.html')
 
