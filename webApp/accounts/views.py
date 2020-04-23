@@ -293,5 +293,25 @@ def register(request):
 
     else:
         return render(request,'register.html')
-    
+
+
+@csrf_exempt
+def weeklypre(request):
+    if request.method=="POST":
+        zonename=request.POST['zone']
+        date=request.POST['date']
+
+        # use zonename and date to retrieve data from data base
+        print("zonename1",zonename)
+        print("date1",date)
+
+        x={"zonename":zonename,"data_list":[20,25,40,50,80,120,150]}
+
+        # update dictionary x's data_list field and put real data from database
+
+        return render(request,'weeklypre1.html',x)
+
+
+    else:
+        return render(request,'weeklypre.html')  
 
