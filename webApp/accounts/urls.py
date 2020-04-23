@@ -13,7 +13,10 @@ urlpatterns = [
     path('patientdetail',views.patientdetail,name='patientdetail'),
     path('equipmentdetail',views.equipmentdetail,name='equipmentdetail'),
     path('requestformdetail',views.requestformdetail,name='requestformdetail'),
-    path('zonaldata',views.zonaldata,name='zonaldata')
+    path('zonaldata',views.zonaldata,name='zonaldata'),
+    path('showrequest',views.showrequest,name='showrequest')
+
+
     # path('add',views.add,name='add'),
 ]
 

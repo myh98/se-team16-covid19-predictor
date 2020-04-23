@@ -150,8 +150,10 @@ def zonaldata(request):
     
     if request.method=='POST':
         zonename=request.POST['zone']
+        date=request.POST['date']
 
         print(" zonename ",zonename)
+        print("date ",date)
 
         # TO DO  fetch data(active,recovered,deaths,beds,ventilator,ppc) corresponding to particular zone..
         active=300
@@ -166,6 +168,11 @@ def zonaldata(request):
         return render(request,'zonaldata1.html',x)
     else:
         return render(request,'zonaldata.html')
+
+@csrf_exempt
+def showrequest(request):
+    return render(request,showrequest.html)
+
 
 @csrf_exempt
 def homehospital(request):
