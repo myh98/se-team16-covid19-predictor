@@ -106,6 +106,9 @@ def signin(request):
             return redirect('signin')
 
         obj1=User.objects.get(username=username)
+        user1=ishospital.objects.get
+
+
         # if obj1.password != password:
         #     messages.info(request,"Invalid credentials!!")
         #     return redirect('signin')
@@ -141,9 +144,36 @@ def signin(request):
     else:
         return render(request,'signin.html')
 
+
+@csrf_exempt
+def zonaldata(request):
+    
+    if request.method=='POST':
+        zonename=request.POST['zone']
+
+        print(" zonename ",zonename)
+
+        # TO DO  fetch data(active,recovered,deaths,beds,ventilator,ppc) corresponding to particular zone..
+        active=300
+        recovered=20
+        deaths=10
+        beds=400
+        ventilators=100
+        ppc=20
+
+        x =  {"zonename":zonename,"active":active, "recovered":recovered, "deaths":deaths,"beds":beds,"ventilators":ventilators,"ppc":ppc}
+
+        return render(request,'zonaldata1.html',x)
+    else:
+        return render(request,'zonaldata.html')
+
 @csrf_exempt
 def homehospital(request):
     return render(request,'homehospital.html')
+
+@csrf_exempt
+def homegovernment(request):
+    return render(request,'homegovernment.html')
 
 @csrf_exempt
 def patientdetail(request):
