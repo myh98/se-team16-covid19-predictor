@@ -50,10 +50,10 @@ class mongo_DB:
             #received values
             
             zone=updated_entry['zone']
-            
+            date_query = updated_entry['date']
 
             #find old values
-            db_values=self.db.zone_data.find({'zone':zone})
+            db_values=self.db.zone_data.find({'zone':zone, 'date':date_query})
             
             for x in db_values:
                 new_active=int(x['active'])+int(updated_entry['active'])
@@ -62,23 +62,23 @@ class mongo_DB:
 
             print("new active \n",new_active)
             #update
-            self.db.zone_data.update_one({"zone":zone},{"$set":{"active":str(new_active),"recovered":str(new_recovered),"death":str(new_death)}})
+            self.db.zone_data.update_one({"zone":zone, 'date':date_query},{"$set":{"active":str(new_active),"recovered":str(new_recovered),"death":str(new_death)}})
 
         elif cl_name=="zone_data" and entry_type=='equipment_update':
             #received values
             
             zone=updated_entry['zone']
-            
+            date_query = updated_entry['date']
 
             #find old values
-            db_values=self.db.zone_data.find({'zone':zone})
+            db_values=self.db.zone_data.find({'zone':zone, 'date':date_query})
             for x1 in db_values:
                 new_beds=int(x1['empty_beds'])+int(updated_entry['empty_beds'])
                 new_ven=int(x1['empty_ven'])+int(updated_entry['empty_ven'])
                 new_ppe=int(x1['ppe_stock'])+int(updated_entry['ppe_stock'])
 
             #update
-            self.db.zone_data.update_one({"zone":zone},{"$set":{"empty_beds":str(new_beds),"empty_ven":str(new_ven),"ppe_stock":str(new_ppe)}})
+            self.db.zone_data.update_one({"zone":zone, 'date':date_query},{"$set":{"empty_beds":str(new_beds),"empty_ven":str(new_ven),"ppe_stock":str(new_ppe)}})
 
         else:
             return False

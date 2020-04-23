@@ -203,7 +203,7 @@ def patientdetail(request):
         else:
             db_entry = {'name':hospital_name, 'pincode':pincode,'zone':zone, 'active':active_cases, 'recovered':recovered_cases, 'death':deaths,'date':date}
             md.insert("patient_details", db_entry)
-            zone_entry = {'zone':zone, 'active':active_cases,'recovered':recovered_cases, 'death':deaths}
+            zone_entry = {'zone':zone, 'date':date,'active':active_cases,'recovered':recovered_cases, 'death':deaths}
             
             md.update("zone_data", 'patient_update', zone_entry)
             #TODO display saved successfully
@@ -235,7 +235,7 @@ def equipmentdetail(request):
         else:
             db_entry = {'name':hospital_name, 'pincode':pincode,'zone':zone, 'empty_beds':empty_beds, 'occupied_beds':occupied_beds, 'empty_ven':unoccupied_vent,'occupied_vents':occupied_vents,'ppe_stock':ppe_kit_count,'date':date}
             md.insert("equipment_details", db_entry)
-            zone_entry = {'zone':zone, 'empty_beds':empty_beds,'empty_ven':unoccupied_vent, 'ppe_stock':ppe_kit_count}
+            zone_entry = {'zone':zone, 'date':date,'empty_beds':empty_beds,'empty_ven':unoccupied_vent, 'ppe_stock':ppe_kit_count}
             
             md.update("zone_data", 'equipment_update', zone_entry)
             #TODO display saved successfully
