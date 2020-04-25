@@ -1,3 +1,4 @@
+from accounts.database_func import mongo_DB
 from django.shortcuts import render
 from django.contrib.auth.models import auth,User
 from django.views.decorators.csrf import csrf_exempt
@@ -5,6 +6,7 @@ from django.shortcuts import redirect
 from accounts.models import ishospital,hospitalinfo
 from django.http import HttpResponse
 from django.contrib import messages
+from pymongo import MongoClient, errors
 
 # Create your views here.
 @csrf_exempt
@@ -104,6 +106,9 @@ def signin(request):
             return redirect('signin')
 
         obj1=User.objects.get(username=username)
+        user1=ishospital.objects.get
+
+
         # if obj1.password != password:
         #     messages.info(request,"Invalid credentials!!")
         #     return redirect('signin')
@@ -139,9 +144,74 @@ def signin(request):
     else:
         return render(request,'signin.html')
 
+
+@csrf_exempt
+def zonaldata(request):
+    
+    if request.method=='POST':
+        zonename=request.POST['zone']
+        date=request.POST['date']
+
+        print(" zonename ",zonename)
+        print("date ",date)
+
+        # TO DO  fetch data(active,recovered,deaths,beds,ventilator,ppc) corresponding to particular zone..
+        md = mongo_DB()
+        check_entry = {'zone':zonename, 'date':date}
+        dict_values = md.retrieveZoneData("zone_data",check_entry)
+        active = dict_values['active']
+        recovered = dict_values['recovered']
+        deaths = dict_values['death']
+        beds = dict_values['empty_beds']
+        ventilators = dict_values['empty_ven']
+        ppe = dict_values['ppe_stock']
+
+        x =  {"zonename":zonename,"active":active, "recovered":recovered, "deaths":deaths,"beds":beds,"ventilators":ventilators,"ppc":ppe}
+
+        return render(request,'zonaldata1.html',x)
+    else:
+        return render(request,'zonaldata.html')
+
+@csrf_exempt
+def showrequest(request):
+    # TO DO fetch requests data  here
+    # here l is the no of database rows
+    
+    obj=[]
+    obj1={'zone':'z','hospital':'h','beds':10,'ventilators':15,'ppe':20,'date':'12-02-2020'}
+    obj2={'zone':'z2','hospital':'h2','beds':10,'ventilators':15,'ppe':20,'date':'12-02-2020'}
+    obj3={'zone':'z3','hospital':'h3','beds':10,'ventilators':15,'ppe':20,'date':'12-02-2020'}
+    obj4={'zone':'z4','hospital':'h4','beds':10,'ventilators':15,'ppe':20,'date':'12-02-2020'}
+    obj.append(obj1)
+    obj.append(obj2)
+    obj.append(obj3)
+    obj.append(obj4)
+
+
+    request_data={'iterator':[]}
+    request_data['iterator']=obj
+
+
+    # TO DO populate your data in obj
+
+
+
+
+
+
+
+
+
+    return render(request,'showrequest.html',request_data)
+
+
 @csrf_exempt
 def homehospital(request):
     return render(request,'homehospital.html')
+
+@csrf_exempt
+def homegovernment(request):
+    return render(request,'homegovernment.html')
 
 @csrf_exempt
 def patientdetail(request):
@@ -156,7 +226,19 @@ def patientdetail(request):
         print("hospital: ", hospital_name)
         # messages.info(request,'In patientdetail. With hospital_name') #TODO: how will this work?
 
-        #TODO: handle db part
+        md = mongo_DB()
+        check_entry = {'name':hospital_name, 'zone':zone, 'date':date}
+        # check_entry = {'name':'hosp1', 'zone':'z1', 'date':'22-04-19'}
+        if md.check_perDayEntry("patient_details", check_entry):
+            print("dup")
+        else:
+            db_entry = {'name':hospital_name, 'pincode':pincode,'zone':zone, 'active':active_cases, 'recovered':recovered_cases, 'death':deaths,'date':date}
+            md.insert("patient_details", db_entry)
+            zone_entry = {'zone':zone, 'date':date,'active':active_cases,'recovered':recovered_cases, 'death':deaths}
+            
+            md.update("zone_data", 'patient_update', zone_entry)
+            #TODO display saved successfully
+
 
         return redirect('patientdetail') #TODO: is this redirection correct?
     else:
@@ -176,6 +258,19 @@ def equipmentdetail(request):
         date=request.POST['date']
 
         #TODO: handle db part
+        md = mongo_DB()
+        check_entry = {'name':hospital_name, 'zone':zone, 'date':date}
+        # check_entry = {'name':'hosp1', 'zone':'z1', 'date':'22-04-19'}
+        if md.check_perDayEntry("equipment_details", check_entry):
+            print("dup")
+        else:
+            db_entry = {'name':hospital_name, 'pincode':pincode,'zone':zone, 'empty_beds':empty_beds, 'occupied_beds':occupied_beds, 'empty_ven':unoccupied_vent,'occupied_vents':occupied_vents,'ppe_stock':ppe_kit_count,'date':date}
+            md.insert("equipment_details", db_entry)
+            zone_entry = {'zone':zone, 'date':date,'empty_beds':empty_beds,'empty_ven':unoccupied_vent, 'ppe_stock':ppe_kit_count}
+            
+            md.update("zone_data", 'equipment_update', zone_entry)
+            #TODO display saved successfully
+
 
         print("zone:", zone)
 
@@ -195,6 +290,15 @@ def requestformdetail(request):
         date = request.POST['date']
 
         #TODO: handle db part
+        md = mongo_DB()
+        check_entry = {'hospit_name':hospital_name, 'zone':zone,'date':date}
+        # check_entry = {'name':'hosp1', 'zone':'z1', 'date':'22-04-19'}
+        if md.check_perDayEntry("request_details", check_entry):
+            print("dup")
+        else:
+            db_entry = {'hospit_name':hospital_name,'zone':zone, 'beds':bed_request, 'vent':vent_request,'ppe_stock':ppe_request,'date':date}
+            md.insert("request_details", db_entry)
+
         print("bed_request:", bed_request)
         return redirect('requestformdetail') #TODO: is this redirection correct?
     else:
@@ -220,5 +324,25 @@ def register(request):
 
     else:
         return render(request,'register.html')
-    
+
+
+@csrf_exempt
+def weeklypre(request):
+    if request.method=="POST":
+        zonename=request.POST['zone']
+        date=request.POST['date']
+
+        # use zonename and date to retrieve data from data base
+        print("zonename1",zonename)
+        print("date1",date)
+
+        x={"zonename":zonename,"data_list":[20,25,40,50,80,120,150]}
+
+        # update dictionary x's data_list field and put real data from database
+
+        return render(request,'weeklypre1.html',x)
+
+
+    else:
+        return render(request,'weeklypre.html')  
 

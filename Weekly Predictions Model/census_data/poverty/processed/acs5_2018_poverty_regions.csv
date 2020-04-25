@@ -1,0 +1,5 @@
+geoid,name,universe,universe_annotation,universe_moe,universe_moe_annotation,income_past12months_below_poverty_level,income_past12months_below_poverty_level_annotation,income_past12months_below_poverty_level_moe,income_past12months_below_poverty_level_moe_annotation,income_past12months_at_or_above_poverty_level,income_past12months_at_or_above_poverty_level_annotation,income_past12months_at_or_above_poverty_level_moe,income_past12months_at_or_above_poverty_level_moe_annotation,region
+3,South Region,119198760.0,,6376.0,,18326243.0,,124779.0,,100872517.0,,127005.0,,3
+4,West Region,75047957.0,,4438.0,,10317066.0,,69337.0,,64730891.0,,68912.0,,4
+1,Northeast Region,54479846.0,,4086.0,,6804004.0,,51056.0,,47675842.0,,51248.0,,1
+2,Midwest Region,66216621.0,,4568.0,,8810666.0,,67123.0,,57405955.0,,68614.0,,2

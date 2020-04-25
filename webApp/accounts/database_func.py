@@ -2,141 +2,171 @@ from pymongo import MongoClient, errors
 Domain='127.0.0.1'
 port=27017
 
+
 class mongo_DB:
 
-	def __init__(self):
-		self.connection=MongoClient("mongodb://apurvi:1234@127.0.0.1/db2")
-		self.db=self.connection.db2
+    def __init__(self):
+        self.connection=MongoClient("mongodb://jyoti:1234@127.0.0.1/hospit_db")
+        self.db=self.connection.hospit_db
 
-	def insert(self,cl_name,db_entry):
-		# self.db.cl_name.insert_one(db_entry)
+    def insert(self,cl_name,db_entry):
+        # self.db.cl_name.insert_one(db_entry)
 
-		if cl_name=="patient_details":
-			self.db.patient_details.insert_one(db_entry)
+        if cl_name=="patient_details":
+            db_entry['date']=self.getDate(db_entry['date'])
+            self.db.patient_details.insert_one(db_entry)
 
-		elif cl_name=="equipment_details":
-			self.db.equipment_details.insert_one(db_entry)
+        elif cl_name=="equipment_details":
+            db_entry['date']=self.getDate(db_entry['date'])
+            self.db.equipment_details.insert_one(db_entry)
 
-		elif cl_name=="request_details":
-			self.db.request_details.insert_one(db_entry)
+        elif cl_name=="request_details":
+            db_entry['date']=self.getDate(db_entry['date'])
+            self.db.request_details.insert_one(db_entry)
 
-		elif cl_name=="output_details":
-			self.db.output_details.insert_one(db_entry)
+        elif cl_name=="output_details":
+            self.db.output_details.insert_one(db_entry)
 
-		else:
-			return False 
-
-
-	def check_perDayEntry(self,cl_name,check_entry): # for check entry enter hospit_name zone and date 
-		
-		if cl_name=="patient_details":
-			
-			return (self.db.patient_details.count_documents(check_entry)==1)
-			
-		if cl_name=="equipment_details":
-			
-			return (self.db.equipment_details.count_documents(check_entry)==1)
-		
+        else:
+            return False 
 
 
-	def update(self,cl_name,entry_type,updated_entry):
+    def check_perDayEntry(self,cl_name,check_entry): # for check entry enter hospit_name zone and date 
+        check_entry['date']=self.getDate(check_entry['date'])
+        if cl_name=="patient_details":
+            
+            return (self.db.patient_details.count_documents(check_entry)==1)
+            
+        if cl_name=="equipment_details":
+            
+            return (self.db.equipment_details.count_documents(check_entry)==1)
 
-		if cl_name=="zone_data" and entry_type=='patient_update':
-			#received values
-			
-			zone=updated_entry['zone']
-			
-
-			#find old values
-			db_values=self.db.zone_data.find({'zone':zone})
-			
-			for x in db_values:
-				new_active=x['active']+updated_entry['active']
-				new_recovered=x['recovered']+updated_entry['recovered']
-				new_death=x['death']+updated_entry['death']
-
-			print("new active \n",new_active)
-			#update
-			self.db.zone_data.update_one({"zone":zone},{"$set":{"active":new_active,"recovered":new_recovered,"death":new_death}})
-
-		elif cl_name=="zone_data" and entry_type=='equipment_update':
-			#received values
-			
-			zone=updated_entry['zone']
-			
-
-			#find old values
-			db_values=self.db.zone_data.find({'zone':zone})
-			for x1 in db_values:
-				new_beds=x1['empty_beds']+updated_entry['empty_beds']
-				new_ven=x1['empty_ven']+updated_entry['empty_ven']
-				new_ppe=x1['ppe_stock']+updated_entry['ppe_stock']
-
-			#update
-			self.db.zone_data.update_one({"zone":zone},{"$set":{"empty_beds":new_beds,"empty_ven":new_ven,"ppe_stock":new_ppe}})
-
-		else:
-			return False
+        if cl_name=="request_details": # Check_entry{'hospit_name':'','zone':,''}
+            
+            return (self.db.request_details.count_documents(check_entry)==1) 
+        
 
 
-	def entire_collection(self,cl_name): # returns cursor object
-		if cl_name=="patient_details":
-			return self.db.patient_details.find()
+    def update(self,cl_name,entry_type,updated_entry):
 
-		elif cl_name=="equipment_details":
-			return self.db.equipment_details.find()
+        if cl_name=="zone_data" and entry_type=='patient_update':
+            #received values
+            
+            zone=updated_entry['zone']
+            date_query = self.getDate(updated_entry['date'])
 
-		elif cl_name=="request_details":
-			return self.db.request_details.find()
+            #find old values
+            db_values=self.db.zone_data.find({'zone':zone, 'date':date_query})
+            
+            new_active=None
+            new_recovered=None
+            new_death=None
+            for x in db_values:
+                new_active=int(x['active'])+int(updated_entry['active'])
+                new_recovered=int(x['recovered'])+int(updated_entry['recovered'])
+                new_death=int(x['death'])+int(updated_entry['death'])
 
-		elif cl_name=="output_details":
-			return self.db.output_details.find()
+            print("new active \n",new_active)
+            #update
+            self.db.zone_data.update_one({"zone":zone, 'date':date_query},{"$set":{"active":str(new_active),"recovered":str(new_recovered),"death":str(new_death)}})
 
-		elif cl_name=="zone_data":
-			return self.db.zone_data.find()
+        elif cl_name=="zone_data" and entry_type=='equipment_update':
+            #received values
+            
+            zone=updated_entry['zone']
+            date_query = self.getDate(updated_entry['date'])
 
-		else:
-			return False 
-		
-	def drop_collection(self,cl_name):
-		
-		if cl_name=='output_details':
-			self.db.output_details.drop()
+            #find old values
+            db_values=self.db.zone_data.find({'zone':zone, 'date':date_query})
+            new_beds=None
+            new_ven=None
+            new_ppe=None
+            for x1 in db_values:
+                new_beds=int(x1['empty_beds'])+int(updated_entry['empty_beds'])
+                new_ven=int(x1['empty_ven'])+int(updated_entry['empty_ven'])
+                new_ppe=int(x1['ppe_stock'])+int(updated_entry['ppe_stock'])
 
-		elif cl_name=="zone_data":
-			self.db.zone_data.drop()
-			zone_list=['z1','z2','z3','z4']
+            #update
+            self.db.zone_data.update_one({"zone":zone, 'date':date_query},{"$set":{"empty_beds":str(new_beds),"empty_ven":str(new_ven),"ppe_stock":str(new_ppe)}})
 
-			for z in zone_list:
-				db_entry={'zone':z,'active':0,'recovered':0,'death':0,'empty_beds':0,'empty_ven':0,'ppe_stock':0}
-				self.db.zone_data.insert_one(db_entry)
-
-		else:
-			return False
-
-	def delete(self,cl_name,db_entry):
-		if cl_name=="patient_details":
-			return self.db.patient_details.delete_many(db_entry)
-
-
-		elif cl_name=="equipment_details":
-			return self.db.equipment_details.delete_many(db_entry)
-
-
-		elif cl_name=="request_details":
-			return self.db.request_details.delete_many(db_entry)
+        else:
+            return False
 
 
-		elif cl_name=="output_details":
-			return self.db.output_details.delete_many(db_entry)
+    def entire_collection(self,cl_name): # returns cursor object
+        if cl_name=="patient_details":
+            return self.db.patient_details.find()
+
+        elif cl_name=="equipment_details":
+            return self.db.equipment_details.find()
+
+        elif cl_name=="request_details":
+            return self.db.request_details.find()
+
+        elif cl_name=="output_details":
+            return self.db.output_details.find()
+
+        elif cl_name=="zone_data":
+            return self.db.zone_data.find()
+
+        else:
+            return False 
+        
+    def drop_collection(self,cl_name):
+        
+        if cl_name=='output_details':
+            self.db.output_details.drop()
+
+        elif cl_name=="zone_data":
+            self.db.zone_data.drop()
+            zone_list=['z1','z2','z3','z4']
+
+            for z in zone_list:
+                db_entry={'zone':z,'active':0,'recovered':0,'death':0,'empty_beds':0,'empty_ven':0,'ppe_stock':0}
+                self.db.zone_data.insert_one(db_entry)
+
+        else:
+            return False
+
+    def getDate(self,date):
+        li = date.split("-")
+        li.reverse()
+        return "/".join(li)
+
+    def delete(self,cl_name,db_entry):
+        if cl_name=="patient_details":
+            return self.db.patient_details.delete_many(db_entry)
 
 
-		elif cl_name=="zone_data":
-			return self.db.zone_data.delete_many(db_entry)
+        elif cl_name=="equipment_details":
+            return self.db.equipment_details.delete_many(db_entry)
 
-		else:
-			return False 
-		
+
+        elif cl_name=="request_details":
+            return self.db.request_details.delete_many(db_entry)
+
+
+        elif cl_name=="output_details":
+            return self.db.output_details.delete_many(db_entry)
+
+
+        elif cl_name=="zone_data":
+            return self.db.zone_data.delete_many(db_entry)
+
+        else:
+            return False 
+
+    def retrieveZoneData(self, cl_name, check_entry):
+
+        if(cl_name == "zone_data"):
+            date_query = self.getDate(check_entry['date'])
+            return self.db.zone_data.find_one({'zone':check_entry['zone'], 'date':date_query})
+
+        elif cl_name == "output_details":
+            return self.db.output_details.find_one({'zone':check_entry['zone']})
+
+        else:
+            return False
 
 
 # def main():

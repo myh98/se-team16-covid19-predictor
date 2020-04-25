@@ -1,0 +1,10 @@
+geoid,name,median,median_annotation,median_moe,median_moe_annotation,division
+3,East North Central Division,57366.0,,127.0,,3
+4,West North Central Division,59435.0,,140.0,,4
+5,South Atlantic Division,57460.0,,174.0,,5
+6,East South Central Division,48597.0,,201.0,,6
+7,West South Central Division,55699.0,,167.0,,7
+8,Mountain Division,59495.0,,184.0,,8
+1,New England Division,72042.0,,283.0,,1
+2,Middle Atlantic Division,65651.0,,219.0,,2
+9,Pacific Division,70064.0,,191.0,,9
