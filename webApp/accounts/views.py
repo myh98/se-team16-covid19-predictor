@@ -174,7 +174,35 @@ def zonaldata(request):
 
 @csrf_exempt
 def showrequest(request):
-    return render(request,showrequest.html)
+    # TO DO fetch requests data  here
+    # here l is the no of database rows
+    
+    obj=[]
+    obj1={'zone':'z','hospital':'h','beds':10,'ventilators':15,'ppe':20,'date':'12-02-2020'}
+    obj2={'zone':'z2','hospital':'h2','beds':10,'ventilators':15,'ppe':20,'date':'12-02-2020'}
+    obj3={'zone':'z3','hospital':'h3','beds':10,'ventilators':15,'ppe':20,'date':'12-02-2020'}
+    obj4={'zone':'z4','hospital':'h4','beds':10,'ventilators':15,'ppe':20,'date':'12-02-2020'}
+    obj.append(obj1)
+    obj.append(obj2)
+    obj.append(obj3)
+    obj.append(obj4)
+
+
+    request_data={'iterator':[]}
+    request_data['iterator']=obj
+
+
+    # TO DO populate your data in obj
+
+
+
+
+
+
+
+
+
+    return render(request,'showrequest.html',request_data)
 
 
 @csrf_exempt
