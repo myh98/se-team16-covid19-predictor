@@ -365,4 +365,3 @@ def weeklypre(request):
         return render(request,'weeklypre.html')  
 
 
-db.output_details.insert({'zone':'Alwal','1_x':2,'2_x':3,'3_x':3,'4_x':4,'5_x':5,'6_x':6,'7_x':2,'1_y':2,'2_y':3,'3_y':3,'4_y':4,'5_y':5,'6_y':6,'7_y':2})
