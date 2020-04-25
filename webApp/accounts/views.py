@@ -176,17 +176,19 @@ def zonaldata(request):
 def showrequest(request):
     # TO DO fetch requests data  here
     # here l is the no of database rows
-    
+    db=mongo_DB()
+    db_rows=db.entire_collection("request_details")
     obj=[]
-    obj1={'zone':'z','hospital':'h','beds':10,'ventilators':15,'ppe':20,'date':'12-02-2020'}
-    obj2={'zone':'z2','hospital':'h2','beds':10,'ventilators':15,'ppe':20,'date':'12-02-2020'}
-    obj3={'zone':'z3','hospital':'h3','beds':10,'ventilators':15,'ppe':20,'date':'12-02-2020'}
-    obj4={'zone':'z4','hospital':'h4','beds':10,'ventilators':15,'ppe':20,'date':'12-02-2020'}
-    obj.append(obj1)
-    obj.append(obj2)
-    obj.append(obj3)
-    obj.append(obj4)
-
+    
+    for x in db_rows:
+    	zone=x['zone']
+    	hospital_name=x['hospit_name']
+    	beds=x['beds']
+    	vent=x['vent']
+    	ppe_stock=x['ppe_stock']
+    	date=x['date']
+    	obj1={'zone':zone,'hospital':hospital_name,'beds':int(beds),'ventilators':int(vent),'ppe':int(ppe_stock),'date':date}
+    	obj.append(obj1)
 
     request_data={'iterator':[]}
     request_data['iterator']=obj
