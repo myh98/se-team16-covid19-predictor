@@ -156,14 +156,17 @@ def zonaldata(request):
         print("date ",date)
 
         # TO DO  fetch data(active,recovered,deaths,beds,ventilator,ppc) corresponding to particular zone..
-        active=300
-        recovered=20
-        deaths=10
-        beds=400
-        ventilators=100
-        ppc=20
+        md = mongo_DB()
+        check_entry = {'zone':zonename, 'date':date}
+        dict_values = md.retrieveZoneData("zone_data",check_entry)
+        active = dict_values['active']
+        recovered = dict_values['recovered']
+        deaths = dict_values['death']
+        beds = dict_values['empty_beds']
+        ventilators = dict_values['empty_ven']
+        ppe = dict_values['ppe_stock']
 
-        x =  {"zonename":zonename,"active":active, "recovered":recovered, "deaths":deaths,"beds":beds,"ventilators":ventilators,"ppc":ppc}
+        x =  {"zonename":zonename,"active":active, "recovered":recovered, "deaths":deaths,"beds":beds,"ventilators":ventilators,"ppc":ppe}
 
         return render(request,'zonaldata1.html',x)
     else:
