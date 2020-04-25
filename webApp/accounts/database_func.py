@@ -163,7 +163,7 @@ class mongo_DB:
             return self.db.zone_data.find_one({'zone':check_entry['zone'], 'date':date_query})
 
         elif cl_name == "output_details":
-            return self.db.output_details.find_one({'zone':check_entry['zone']})
+            return self.db.output_details.find({'zone':check_entry['zone']})
 
         else:
             return False
