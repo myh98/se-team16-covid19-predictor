@@ -6,19 +6,22 @@ port=27017
 class mongo_DB:
 
     def __init__(self):
-        self.connection=MongoClient("mongodb://hospit:1234@127.0.0.1/hospit_db")
+        self.connection=MongoClient("mongodb://jyoti:1234@127.0.0.1/hospit_db")
         self.db=self.connection.hospit_db
 
     def insert(self,cl_name,db_entry):
         # self.db.cl_name.insert_one(db_entry)
 
         if cl_name=="patient_details":
+            db_entry['date']=self.getDate(db_entry['date'])
             self.db.patient_details.insert_one(db_entry)
 
         elif cl_name=="equipment_details":
+            db_entry['date']=self.getDate(db_entry['date'])
             self.db.equipment_details.insert_one(db_entry)
 
         elif cl_name=="request_details":
+            db_entry['date']=self.getDate(db_entry['date'])
             self.db.request_details.insert_one(db_entry)
 
         elif cl_name=="output_details":
@@ -29,7 +32,7 @@ class mongo_DB:
 
 
     def check_perDayEntry(self,cl_name,check_entry): # for check entry enter hospit_name zone and date 
-        
+        check_entry['date']=self.getDate(check_entry['date'])
         if cl_name=="patient_details":
             
             return (self.db.patient_details.count_documents(check_entry)==1)
@@ -50,11 +53,14 @@ class mongo_DB:
             #received values
             
             zone=updated_entry['zone']
-            date_query = updated_entry['date']
+            date_query = self.getDate(updated_entry['date'])
 
             #find old values
             db_values=self.db.zone_data.find({'zone':zone, 'date':date_query})
             
+            new_active=None
+            new_recovered=None
+            new_death=None
             for x in db_values:
                 new_active=int(x['active'])+int(updated_entry['active'])
                 new_recovered=int(x['recovered'])+int(updated_entry['recovered'])
@@ -68,10 +74,13 @@ class mongo_DB:
             #received values
             
             zone=updated_entry['zone']
-            date_query = updated_entry['date']
+            date_query = self.getDate(updated_entry['date'])
 
             #find old values
             db_values=self.db.zone_data.find({'zone':zone, 'date':date_query})
+            new_beds=None
+            new_ven=None
+            new_ppe=None
             for x1 in db_values:
                 new_beds=int(x1['empty_beds'])+int(updated_entry['empty_beds'])
                 new_ven=int(x1['empty_ven'])+int(updated_entry['empty_ven'])
@@ -119,6 +128,11 @@ class mongo_DB:
         else:
             return False
 
+    def getDate(self,date):
+        li = date.split("-")
+        li.reverse()
+        return "/".join(li)
+
     def delete(self,cl_name,db_entry):
         if cl_name=="patient_details":
             return self.db.patient_details.delete_many(db_entry)
@@ -141,6 +155,18 @@ class mongo_DB:
 
         else:
             return False 
+
+    def retrieveZoneData(self, cl_name, check_entry):
+
+        if(cl_name == "zone_data"):
+            date_query = self.getDate(check_entry['date'])
+            return self.db.zone_data.find_one({'zone':check_entry['zone'], 'date':date_query})
+
+        elif cl_name == "output_details":
+            return self.db.output_details.find_one({'zone':check_entry['zone']})
+
+        else:
+            return False
 
 
 # def main():
