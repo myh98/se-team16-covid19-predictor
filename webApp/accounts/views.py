@@ -338,7 +338,23 @@ def weeklypre(request):
         print("zonename1",zonename)
         print("date1",date)
 
-        x={"zonename":zonename,"data_list":[20,25,40,50,80,120,150]}
+        md = mongo_DB()
+        new_list = []
+        death_list = []
+        check_entry = {'zone':zonename}
+        cursor_rcvd = md.retrieveZoneData("output_details", check_entry)
+
+        for entry in cursor_rcvd:
+            for i in range(1,8):
+                col = str(i)+"_x"
+                new_list.append(entry[col])
+                # col = str(i)+"_y"
+                # death_list.append(entry[col])
+        print(new_list)
+        # print(death_list)
+
+        x={"zonename":zonename,"data_list":new_list}
+        # y={"zonename":zonename,"data_list":death_list}
 
         # update dictionary x's data_list field and put real data from database
 
@@ -348,3 +364,5 @@ def weeklypre(request):
     else:
         return render(request,'weeklypre.html')  
 
+
+db.output_details.insert({'zone':'Alwal','1_x':2,'2_x':3,'3_x':3,'4_x':4,'5_x':5,'6_x':6,'7_x':2,'1_y':2,'2_y':3,'3_y':3,'4_y':4,'5_y':5,'6_y':6,'7_y':2})
