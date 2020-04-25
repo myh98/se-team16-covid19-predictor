@@ -348,13 +348,13 @@ def weeklypre(request):
             for i in range(1,8):
                 col = str(i)+"_x"
                 new_list.append(entry[col])
-                # col = str(i)+"_y"
-                # death_list.append(entry[col])
+                col = str(i)+"_y"
+                death_list.append(entry[col])
         print(new_list)
         # print(death_list)
 
         x={"zonename":zonename,"data_list":new_list}
-        # y={"zonename":zonename,"data_list":death_list}
+        y={"zonename":zonename,"data_list":death_list}
 
         # update dictionary x's data_list field and put real data from database
 
