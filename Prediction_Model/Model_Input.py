@@ -25,7 +25,7 @@ def formcsv():
 	inputDF["zone"]=zones
 	inputDF["new"]=new_values
 	inputDF["death"]=death 
-	inputDF.to_csv("my_final_sample.csv",index=None)
+	inputDF.to_csv("data_files/my_final_sample.csv",index=None)
 
 
 if __name__ == '__main__':

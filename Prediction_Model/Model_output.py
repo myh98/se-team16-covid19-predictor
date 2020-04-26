@@ -4,7 +4,8 @@ import pandas as pd
 
 db=mongo_DB()
 
-df=pd.read_csv("final_dataset.csv")
+db.drop_collection("output_details")
+df=pd.read_csv("data_files/final_dataset.csv")
 output_values=df.to_numpy()
 # print(output_values.shape)
 
