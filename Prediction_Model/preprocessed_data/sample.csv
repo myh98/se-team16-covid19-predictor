@@ -1,0 +1,61 @@
+zone,date,new,active,recovered,death,empty_beds,empty_ven,ppe_stock
+Alwal,24/04/20,1,10,3,2,2,2,3
+Amberpet,24/04/20,2,9,4,3,3,3,4
+Begumpet,24/04/20,3,8,1,1,1,1,1
+Chandanagar,24/04/20,4,7,2,2,2,2,2
+Chandrayangutta,24/04/20,5,5,4,3,3,3,4
+Charminar,24/04/20,7,7,5,1,1,1,5
+Falakunuma,24/04/20,6,6,6,2,2,2,6
+Gajula Ramaram,24/04/20,3,5,7,2,2,2,7
+Goshamahal,24/04/20,4,10,5,3,3,3,5
+Hayathnagar,24/04/20,5,9,3,2,2,2,3
+Jubilee Hills,24/04/20,1,8,4,3,3,3,4
+Kapra,24/04/20,2,7,1,1,1,1,1
+Karwan,24/04/20,2,7,1,1,1,1,1
+Khairatabad,24/04/20,3,5,2,2,2,2,2
+Kukatpally,24/04/20,4,7,4,3,3,3,4
+LB Nagar,24/04/20,5,6,5,1,1,1,5
+Malakpet,24/04/20,7,5,6,2,2,2,6
+Malkajgiri,24/04/20,6,10,7,2,2,2,7
+Mehdipatnam,24/04/20,3,9,5,3,3,3,5
+Moosapet,24/04/20,4,8,3,2,2,2,3
+Musheerabad,24/04/20,5,7,4,3,2,3,4
+Quthbullapur,24/04/20,1,5,1,1,3,1,1
+Rajendra Nagar,24/04/20,2,7,2,2,1,2,2
+Ramachandra Puram / Patancheru,24/04/20,1,6,4,3,2,3,4
+Santhoshnagar,24/04/20,2,5,5,1,3,1,5
+Saroornagar,24/04/20,3,10,6,2,1,2,6
+Secunderabad Division,24/04/20,4,9,7,2,2,2,7
+Serilingampally,24/04/20,5,8,5,3,2,3,5
+Uppal,24/04/20,7,7,3,2,3,2,3
+Yousufguda,24/04/20,6,5,4,3,2,3,4
+Alwal,25/04/20,3,7,1,1,3,1,1
+Amberpet,25/04/20,4,6,2,2,1,2,2
+Begumpet,25/04/20,5,5,4,3,2,3,4
+Chandanagar,25/04/20,1,10,5,1,3,1,5
+Chandrayangutta,25/04/20,2,9,6,2,2,2,6
+Charminar,25/04/20,3,8,7,2,3,2,7
+Falakunuma,25/04/20,4,7,5,3,1,3,3
+Gajula Ramaram,25/04/20,1,10,3,2,2,2,4
+Goshamahal,25/04/20,2,9,4,3,3,3,1
+Hayathnagar,25/04/20,3,8,1,1,1,1,2
+Jubilee Hills,25/04/20,4,7,2,2,2,2,4
+Kapra,25/04/20,5,5,4,3,2,3,5
+Karwan,24/04/20,2,7,1,1,1,1,1
+Khairatabad,25/04/20,7,7,5,1,3,1,6
+Kukatpally,25/04/20,6,6,6,2,2,2,7
+LB Nagar,25/04/20,3,5,7,2,3,2,5
+Malakpet,25/04/20,4,10,5,3,1,3,3
+Malkajgiri,25/04/20,5,9,3,2,2,2,4
+Mehdipatnam,25/04/20,1,8,4,3,3,3,1
+Moosapet,25/04/20,2,7,1,1,1,1,2
+Musheerabad,25/04/20,1,5,2,2,2,2,4
+Quthbullapur,25/04/20,2,7,4,3,2,3,5
+Rajendra Nagar,25/04/20,3,6,5,1,3,1,6
+Ramachandra Puram / Patancheru,25/04/20,4,5,6,2,2,2,7
+Santhoshnagar,25/04/20,5,10,7,2,2,2,5
+Saroornagar,25/04/20,7,9,5,3,3,3,3
+Secunderabad Division,25/04/20,6,8,3,2,1,2,4
+Serilingampally,25/04/20,3,7,4,3,2,3,1
+Uppal,25/04/20,4,5,1,1,3,1,2
+Yousufguda,25/04/20,5,7,2,2,1,2,4

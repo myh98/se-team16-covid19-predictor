@@ -6,22 +6,22 @@ port=27017
 class mongo_DB:
 
     def __init__(self):
-        self.connection=MongoClient("mongodb://jyoti:1234@127.0.0.1/hospit_db")
+        self.connection=MongoClient("mongodb://hospit:1234@127.0.0.1/hospit_db")
         self.db=self.connection.hospit_db
 
     def insert(self,cl_name,db_entry):
         # self.db.cl_name.insert_one(db_entry)
 
         if cl_name=="patient_details":
-            db_entry['date']=self.getDate(db_entry['date'])
+            # db_entry['date']=self.getDate(db_entry['date'])
             self.db.patient_details.insert_one(db_entry)
 
         elif cl_name=="equipment_details":
-            db_entry['date']=self.getDate(db_entry['date'])
+            # db_entry['date']=self.getDate(db_entry['date'])
             self.db.equipment_details.insert_one(db_entry)
 
         elif cl_name=="request_details":
-            db_entry['date']=self.getDate(db_entry['date'])
+            # db_entry['date']=self.getDate(db_entry['date'])
             self.db.request_details.insert_one(db_entry)
 
         elif cl_name=="output_details":
@@ -32,7 +32,7 @@ class mongo_DB:
 
 
     def check_perDayEntry(self,cl_name,check_entry): # for check entry enter hospit_name zone and date 
-        check_entry['date']=self.getDate(check_entry['date'])
+        # check_entry['date']=self.getDate(check_entry['date'])
         if cl_name=="patient_details":
             
             return (self.db.patient_details.count_documents(check_entry)==1)
@@ -53,7 +53,7 @@ class mongo_DB:
             #received values
             
             zone=updated_entry['zone']
-            date_query = self.getDate(updated_entry['date'])
+            date_query = updated_entry['date']
 
             #find old values
             db_values=self.db.zone_data.find({'zone':zone, 'date':date_query})
@@ -74,7 +74,7 @@ class mongo_DB:
             #received values
             
             zone=updated_entry['zone']
-            date_query = self.getDate(updated_entry['date'])
+            date_query = updated_entry['date']
 
             #find old values
             db_values=self.db.zone_data.find({'zone':zone, 'date':date_query})
@@ -107,6 +107,7 @@ class mongo_DB:
             return self.db.output_details.find()
 
         elif cl_name=="zone_data":
+            # print("here")
             return self.db.zone_data.find()
 
         else:
@@ -128,10 +129,10 @@ class mongo_DB:
         else:
             return False
 
-    def getDate(self,date):
-        li = date.split("-")
-        li.reverse()
-        return "/".join(li)
+    # def getDate(self,date):
+    #     li = date.split("-")
+    #     li.reverse()
+    #     return "/".join(li)
 
     def delete(self,cl_name,db_entry):
         if cl_name=="patient_details":
@@ -159,64 +160,64 @@ class mongo_DB:
     def retrieveZoneData(self, cl_name, check_entry):
 
         if(cl_name == "zone_data"):
-            date_query = self.getDate(check_entry['date'])
+            date_query = check_entry['date']
             return self.db.zone_data.find_one({'zone':check_entry['zone'], 'date':date_query})
 
         elif cl_name == "output_details":
-            return self.db.output_details.find_one({'zone':check_entry['zone']})
+            return self.db.output_details.find({'zone':check_entry['zone']})
 
         else:
             return False
 
 
 # def main():
-# 	mdb=mongo_DB()
-# 	#------------------- Check1 : Enter Patient Details----------------------------------
-# 	check=mdb.check_perDayEntry("patient_details",{'name':'jyoti','zone':'z1','date':'1/2/19'})
-# 	if(check==True):
-# 		print("Duplicate Entry")
+#   mdb=mongo_DB()
+#   #------------------- Check1 : Enter Patient Details----------------------------------
+#   check=mdb.check_perDayEntry("patient_details",{'name':'jyoti','zone':'z1','date':'1/2/19'})
+#   if(check==True):
+#       print("Duplicate Entry")
 
-# 	else:
+#   else:
 
-# 		print("Making entry")
+#       print("Making entry")
 
-# 		val=mdb.insert("patient_details",{'name':'jyoti','zone':'z1','date':'1/2/19','active':2,'recovered':3,'death':1})
-# 		mdb.update('zone_data','patient_update',{'zone':'z1','active':1,'recovered':3,'death':1})
-# 		table_entries=mdb.entire_collection('zone_data')
-# 		print('done')
+#       val=mdb.insert("patient_details",{'name':'jyoti','zone':'z1','date':'1/2/19','active':2,'recovered':3,'death':1})
+#       mdb.update('zone_data','patient_update',{'zone':'z1','active':1,'recovered':3,'death':1})
+#       table_entries=mdb.entire_collection('zone_data')
+#       print('done')
 
 
-# 	#------------------------Check2 : Enter Equipment details-------------------------------------
-# 	check=mdb.check_perDayEntry("equipment_details",{'name':'jyoti','zone':'z1','date':'1/2/19','empty_beds':10,'empty_ven':5,'ppe_stock':1})
-# 	if(check==True):
-# 		print("Duplicate Entry")
+#   #------------------------Check2 : Enter Equipment details-------------------------------------
+#   check=mdb.check_perDayEntry("equipment_details",{'name':'jyoti','zone':'z1','date':'1/2/19','empty_beds':10,'empty_ven':5,'ppe_stock':1})
+#   if(check==True):
+#       print("Duplicate Entry")
 
-# 	else:
+#   else:
 
-# 		print("Making entry")
-# 		val=mdb.insert("equipment_details",{'name':'jyoti','zone':'z1','date':'1/2/19','empty_beds':10,'empty_ven':5,'ppe_stock':1})
-# 		mdb.update('zone_data','equipment_update',{'zone':'z1','empty_beds':10,'empty_ven':5,'ppe_stock':1})
-# 		print('done')
+#       print("Making entry")
+#       val=mdb.insert("equipment_details",{'name':'jyoti','zone':'z1','date':'1/2/19','empty_beds':10,'empty_ven':5,'ppe_stock':1})
+#       mdb.update('zone_data','equipment_update',{'zone':'z1','empty_beds':10,'empty_ven':5,'ppe_stock':1})
+#       print('done')
 
-# 	#----------------------Check3 insert other  table-----------------------------------
-# 	val=mdb.insert("request_details",{'name':'jyoti','zone':'z1','date':'1/2/19','empty_beds':10,'empty_ven':5,'ppe_stock':1})
-# 	val=mdb.insert("request_details",{'name':'jyoti','zone':'z2','date':'1/2/19','empty_beds':10,'empty_ven':5,'ppe_stock':1})
+#   #----------------------Check3 insert other  table-----------------------------------
+#   val=mdb.insert("request_details",{'name':'jyoti','zone':'z1','date':'1/2/19','empty_beds':10,'empty_ven':5,'ppe_stock':1})
+#   val=mdb.insert("request_details",{'name':'jyoti','zone':'z2','date':'1/2/19','empty_beds':10,'empty_ven':5,'ppe_stock':1})
 
-# 	val=mdb.insert("output_details",{'name':'jyoti','zone':'zi','date':'1/2/19','empty_beds':10,'empty_ven':5,'ppe_stock':1})
-		
-# 	#-------------------------Cursor Object return-------------------------------------
-# 	table_entries=mdb.entire_collection('output_details')
-# 	table_entries=mdb.entire_collection('zone_data')
-# 	# print('type ',type(table_entries))
-# 	for x in table_entries:
-# 		print('table entry : ',x['zone'])
+#   val=mdb.insert("output_details",{'name':'jyoti','zone':'zi','date':'1/2/19','empty_beds':10,'empty_ven':5,'ppe_stock':1})
+        
+#   #-------------------------Cursor Object return-------------------------------------
+#   table_entries=mdb.entire_collection('output_details')
+#   table_entries=mdb.entire_collection('zone_data')
+#   # print('type ',type(table_entries))
+#   for x in table_entries:
+#       print('table entry : ',x['zone'])
 
-# 	#------------------Request Delete--------------------------------------------------
-# 	mdb.delete("request_details",{'name':'jyoti','zone':'z2','date':'1/2/19'})
+#   #------------------Request Delete--------------------------------------------------
+#   mdb.delete("request_details",{'name':'jyoti','zone':'z2','date':'1/2/19'})
 
-# 	#----------------------------Drop collection--------------------------------------------
-# 	# mdb.drop_collection('output_details')
-# 	# mdb.drop_collection('zone_data')
+#   #----------------------------Drop collection--------------------------------------------
+#   # mdb.drop_collection('output_details')
+#   # mdb.drop_collection('zone_data')
 
 # if __name__=='__main__':
-# 	main()
+#   main()
