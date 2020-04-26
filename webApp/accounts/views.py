@@ -8,6 +8,11 @@ from django.http import HttpResponse
 from django.contrib import messages
 from pymongo import MongoClient, errors
 
+import pandas as pd
+import os
+from se.settings import BASE_DIR
+
+
 # Create your views here.
 @csrf_exempt
 def signup_hospital(request):
@@ -195,14 +200,20 @@ def showrequest(request):
     # TO DO populate your data in obj
 
 
-
-
-
-
-
-
-
     return render(request,'showrequest.html',request_data)
+
+@csrf_exempt
+def heatmap(request):
+    # print("BASE_DIR: ", BASE_DIR)
+    file = open(os.path.join(BASE_DIR, 'final_dataset.csv'))
+    df = pd.read_csv(file)
+    obj=[]
+    for i in range(df.shape[0]):
+        obj.append({'zone':df.iloc[i]['location'], 'predicted_risk':df.iloc[i]['predicted_risk']})
+    
+    request_data={'iterator':[]}
+    request_data['iterator']=obj
+    return render(request,'heatmap.html', request_data)
 
 
 @csrf_exempt
@@ -242,6 +253,7 @@ def patientdetail(request):
 
         return redirect('patientdetail') #TODO: is this redirection correct?
     else:
+        print("in patientdetail!")
         return render(request,'patientform.html')
 
 @csrf_exempt
