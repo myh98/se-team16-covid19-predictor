@@ -1,7 +1,5 @@
 {% load static %}
 <!DOCTYPE html>
-
-
 <html lang="en" dir="">
 
     <head>
@@ -11,6 +9,7 @@
         <title>Hospitapp</title>
         <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,400i,600,700,800,900" rel="stylesheet">
         <link id="gull-theme" rel="stylesheet" href="{% static 'styles/css/themes/lite-purple.min.css' %}">
+        <link rel="stylesheet" href="{% static 'styles/vendor/perfect-scrollbar.css' %}">
         <link rel="stylesheet" href="{% static 'styles/vendor/perfect-scrollbar.css' %}">
 
     </head>
@@ -136,7 +135,7 @@
                                 </div>
                                 <a class="dropdown-item">Account settings</a>
                                 <!-- <a class="dropdown-item">Billing history</a> -->
-                                <a class="dropdown-item" href="logout">Sign out</a>
+                                <a class="dropdown-item" href="signin.html">Sign out</a>
                             </div>
                         </div>
                     </div>
@@ -153,43 +152,38 @@
 
 
 
-                        <li class="nav-item" data-item="forms-PatientDetails">
+                        <li class="nav-item" data-item="Zonal-data">
                             <a class="nav-item-hold" href="#">
                                 <i class="nav-icon i-File-Clipboard-File--Text"></i>
-                                <span class="nav-text">Patient Details</span>
+                                <span class="nav-text">Zonal Data</span>
                             </a>
                             <div class="triangle"></div>
                         </li>
 
-                        <li class="nav-item" data-item="forms-EquipmentDetails">
+                        <li class="nav-item" data-item="Prediction">
                             <a class="nav-item-hold" href="#">
-                                <i class="nav-icon i-File-Clipboard-File--Text"></i>
-                                <span class="nav-text">Equipment Details</span>
-                            </a>
-                            <div class="triangle"></div>
-                        </li>
-                        <li class="nav-item" data-item="forms-Request">
-                            <a class="nav-item-hold" href="#">
-                                <i class="nav-icon i-File-Clipboard-File--Text"></i>
-                                <span class="nav-text">Request</span>
-                            </a>
-                            <div class="triangle"></div>
-                        </li>
-                        <li class="nav-item " data-item="charts">
-                            <a class="nav-item-hold" href="#">
-                                <i class="nav-icon i-File-Clipboard-File--Text"></i>
-                                <span class="nav-text">Data Visualization</span>
+                                <i class="nav-icon i-Bar-Chart"></i>
+                                <span class="nav-text">Weekly Predictions</span>
                             </a>
                             <div class="triangle"></div>
                         </li>
 
-                        <li class="nav-item" data-item="sessions">
+                        <li class="nav-item" data-item="Heat-map">
                             <a class="nav-item-hold" href="#">
-                                <i class="nav-icon i-Administrator"></i>
-                                <span class="nav-text">Sessions</span>
+                                <i class="nav-icon i-File-Clipboard-File--Text"></i>
+                                <span class="nav-text">Heat Map</span>
                             </a>
                             <div class="triangle"></div>
                         </li>
+                        <li class="nav-item " data-item="View-request">
+                            <a class="nav-item-hold" href="#">
+                                <i class="nav-icon i-File-Clipboard-File--Text"></i>
+                                <span class="nav-text">View Request</span>
+                            </a>
+                            <div class="triangle"></div>
+                        </li>
+
+
                         <li class="nav-item active" data-item="others">
                             <a class="nav-item-hold" href="#">
                                 <i class="nav-icon i-Double-Tap"></i>
@@ -203,120 +197,42 @@
 
                 <div class="sidebar-left-secondary rtl-ps-none" data-perfect-scrollbar data-suppress-scroll-x="true">
 
-                    <ul class="childNav" data-parent="forms-PatientDetails">
+                    <ul class="childNav" data-parent="Zonal-data">
                         <li class="nav-item">
-                            <a href="patientdetail">
+                            <a href="zonaldata">
                                 <i class="nav-icon i-File-Clipboard-Text--Image"></i>
-                                <span class="item-name">Fill Patient Details</span>
+                                <span class="item-name">Show Data</span>
                             </a>
                         </li>
 
                     </ul>
-                    <ul class="childNav" data-parent="forms-EquipmentDetails">
+
+                    <ul class="childNav" data-parent="Prediction">
                         <li class="nav-item">
-                            <a href="equipmentdetail">
-                                <i class="nav-icon i-File-Clipboard-Text--Image"></i>
-                                <span class="item-name">Fill Equipment Details </span>
+                            <a href="weeklypre">
+                                <i class="nav-icon i-Clock-3"></i>
+                                <span class="item-name">Predictions</span>
                             </a>
                         </li>
                     </ul>
-                    <ul class="childNav" data-parent="forms-Request">
+                    <ul class="childNav" data-parent="Heat-map">
                         <li class="nav-item">
-                            <a href="requestformdetail">
+                            <a href="">
                                 <i class="nav-icon i-File-Clipboard-Text--Image"></i>
-                                <span class="item-name">Request Form</span>
+                                <span class="item-name">Heat Maps</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="childNav" data-parent="View-request">
+                        <li class="nav-item">
+                            <a href="showrequest">
+                                <i class="nav-icon i-File-Clipboard-Text--Image"></i>
+                                <span class="item-name">Show Requests</span>
                             </a>
                         </li>
                     </ul>
 
-\
 
-
-                    <!-- chartjs -->
-                    <ul class="childNav" data-parent="charts">
-                        <li class="nav-item">
-                            <a class="" href="charts.echarts.html">
-                                <i class="nav-icon i-File-Clipboard-Text--Image"></i>
-                                <span class="item-name">echarts</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="" href="charts.chartsjs.html">
-                                <i class="nav-icon i-File-Clipboard-Text--Image"></i>
-                                <span class="item-name">ChartJs</span>
-                            </a>
-                        </li>
-                        <li class="nav-item dropdown-sidemenu">
-                            <a class="" href="">
-                                <i class="nav-icon i-File-Clipboard-Text--Image"></i>
-                                <span class="item-name">Apex Charts</span>
-                                <i class="dd-arrow i-Arrow-Down"></i>
-                            </a>
-                            <ul class="submenu">
-                                <li><a class="" href="charts.apexAreaCharts.html">Area Charts</a></li>
-                                <li><a class="" href="charts.apexBarCharts.html">Bar Charts</a></li>
-                                <li><a class="" href="charts.apexBubbleCharts.html">Bubble Charts</a></li>
-                                <li><a class="" href="charts.apexColumnCharts.html">Column Charts</a></li>
-                                <li><a class="" href="charts.apexCandleStickCharts.html">CandleStick Charts</a></li>
-                                <li><a class="" href="charts.apexLineCharts.html">Line Charts</a></li>
-                                <li><a class="" href="charts.apexMixCharts.html">Mix Charts</a></li>
-                                <li><a class="" href="charts.apexPieDonutCharts.html">PieDonut Charts</a></li>
-                                <li><a class="" href="charts.apexRadarCharts.html">Radar Charts</a></li>
-                                <li><a class="" href="charts.apexRadialBarCharts.html">RadialBar Charts</a></li>
-                                <li><a class="" href="charts.apexScatterCharts.html">Scatter Charts</a></li>
-                                <li><a class="" href="charts.apexSparklineCharts.html">Sparkline Charts</a></li>
-
-                            </ul>
-                        </li>
-
-
-
-
-
-                    </ul>
-
-
-
-                    <ul class="childNav" data-parent="sessions">
-                        <li class="nav-item">
-                            <a href="signin.html">
-                                <i class="nav-icon i-Checked-User"></i>
-                                <span class="item-name">Sign in</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="signup.html">
-                                <i class="nav-icon i-Add-User"></i>
-                                <span class="item-name">Sign up</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="forgot.html">
-                                <i class="nav-icon i-Find-User"></i>
-                                <span class="item-name">Forgot</span>
-                            </a>
-                        </li>
-                    </ul>
-                    <ul class="childNav" data-parent="others">
-                        <li class="nav-item">
-                            <a href="not.found.html">
-                                <i class="nav-icon i-Error-404-Window"></i>
-                                <span class="item-name">Not Found</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="user.profile.html">
-                                <i class="nav-icon i-Male"></i>
-                                <span class="item-name">User Profile</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="blank.html" class="open">
-                                <i class="nav-icon i-File-Horizontal"></i>
-                                <span class="item-name">Blank Page</span>
-                            </a>
-                        </li>
-                    </ul>
                 </div>
                 <div class="sidebar-overlay"></div>
             </div>
@@ -324,30 +240,178 @@
 
             <!-- ============ Body content start ============= -->
             <div class="main-content-wrap sidenav-open d-flex flex-column">
-                <div class="breadcrumb">
-                    <h1 class="mr-2">{{hospital_name}}</h1>
-<!--                     <ul>
+<!--                 <div class="breadcrumb">
+                    <h1 class="mr-2">Version 1</h1>
+                    <ul>
                         <li><a href="">Dashboard</a></li>
                         <li>Version 1</li>
-                    </ul> -->
-                </div>
+                    </ul>
+                </div> -->
 
                 <div class="separator-breadcrumb border-top"></div>
 
 
 
-                <div class="row">
-                    <div class="col-lg-8 col-md-12">
-                        <div class="card mb-4">
-                            <div class="card-body">
-                                <div class="card-title">This Year Sales</div>
-                                <div id="echartBar" style="height: 300px;"></div>
+
+
+
+
+                <div class="col-lg-12 col-md-12">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="card-title">{{zonename}}</div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <table class="table">
+                                        <thead class="thead-light">
+                                            <tr>
+                                                <th scope="col">Item</th>
+                                                <th scope="col">Info</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Active Cases</td>
+                                                <td class="font-weight-bold text-success">{{active}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Recovered Cases</td>
+                                                <td class="text-warning font-weight-bold">{{recovered}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Deaths</td>
+                                                <td class="text-danger">{{deaths}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Beds</td>
+                                                <td class="font-weight-bold">{{beds}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Ventilators</td>
+                                                <td class="font-weight-bold">{{ventilators}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>PPE Kits</td>
+                                                <td class="font-weight-bold">{{ppc}}</td>
+                                            </tr>
+                                      
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
 
                             </div>
                         </div>
-
                     </div>
                 </div>
+
+                <!-- <div class="row">
+                    <div class="col-md-12">
+                        <div class="card o-hidden mb-4">
+                            <div class="card-header d-flex align-items-center">
+                                <h3 class="w-50 float-left card-title m-0">New Users</h3>
+                                <div class="dropdown dropleft text-right w-50 float-right">
+                                    <button class="btn bg-gray-100" type="button" id="dropdownMenuButton_table1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="nav-icon i-Gear-2"></i>
+                                            </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton_table1">
+                                        <a class="dropdown-item" href="#">Add new user</a>
+                                        <a class="dropdown-item" href="#">View All users</a>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="card-body">
+
+                                <div class="table-responsive">
+
+                                    <table id="user_table" class="table dataTable-collapse text-center">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Name</th>
+                                                <th scope="col">Avatar</th>
+                                                <th scope="col">Email</th>
+                                                <th scope="col">Status</th>
+                                                <th scope="col">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>Smith</td>
+                                                <td>
+                                                    <img class="rounded-circle m-0 avatar-sm-table " src="/assets/images/faces/1.jpg" alt="">
+                                                </td>
+
+                                                <td>Smith@gmail.com</td>
+                                                <td><span class="badge badge-success">Active</span></td>
+                                                <td>
+                                                    <a href="#" class="text-success mr-2">
+                                                        <i class="nav-icon i-Pen-2 font-weight-bold"></i>
+                                                    </a>
+                                                    <a href="#" class="text-danger mr-2">
+                                                        <i class="nav-icon i-Close-Window font-weight-bold"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">2</th>
+                                                <td>Jhon Doe</td>
+                                                <td>
+
+                                                    <img class="rounded-circle m-0 avatar-sm-table " src="/assets/images/faces/1.jpg" alt="">
+
+                                                </td>
+
+                                                <td>Jhon@gmail.com</td>
+                                                <td><span class="badge badge-info">Pending</span></td>
+                                                <td>
+                                                    <a href="#" class="text-success mr-2">
+                                                        <i class="nav-icon i-Pen-2 font-weight-bold"></i>
+                                                    </a>
+                                                    <a href="#" class="text-danger mr-2">
+                                                        <i class="nav-icon i-Close-Window font-weight-bold"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">3</th>
+                                                <td>Alex</td>
+                                                <td>
+
+                                                    <img class="rounded-circle m-0 avatar-sm-table " src="/assets/images/faces/1.jpg" alt="">
+
+                                                </td>
+
+                                                <td>Otto@gmail.com</td>
+                                                <td><span class="badge badge-warning">Not Active</span></td>
+                                                <td>
+                                                    <a href="#" class="text-success mr-2">
+                                                        <i class="nav-icon i-Pen-2 font-weight-bold"></i>
+                                                    </a>
+                                                    <a href="#" class="text-danger mr-2">
+                                                        <i class="nav-icon i-Close-Window font-weight-bold"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+ -->
+                <!-- script for echart5 in progress -->
+      <!--           <script>
+                var o=document.getElementById("echart_custom");
+                if(o)
+                    {var a=echarts.init(o);a.setOption(_extends({},echartOptions.defaultOptions,{legend:{show:!0,bottom:0},series:[_extends({type:"pie"},echartOptions.pieRing,{label:echartOptions.pieLabelCenterHover,data:[{name:"Completed",value:80,itemStyle:{color:"#663399"}},{name:"Pending",value:20,itemStyle:{color:"#ced4da"}}]})]}));
+                }
+                </script> -->
 
  <!--                <div class="row">
                   <div class="column" > 
@@ -368,7 +432,7 @@
                 </style> -->
 
 
-
+<!-- 
                 <div class="card mb-4">
                     <div class="card-body p-0">
                         <div class="card-title border-bottom d-flex align-items-center m-0 p-3">
@@ -420,12 +484,12 @@
                         </div>
 
                     </div>
-                </div>
+                </div> -->
 
 
 
                 {% comment %} <!-- Footer Start -->
-                <div class="flex-grow-1"></div>
+                <!-- <div class="flex-grow-1"></div> -->
                 <div class="app-footer">
                     <div class="row">
                         <div class="col-md-9">
@@ -449,7 +513,7 @@
         <!-- ============ Search UI Start ============= -->
         <div class="search-ui">
             <div class="search-header o-hidden">
-                <img src="{% static 'images/logo.png' %}" alt="" class="logo float-left">
+                <img src="{% static 'images/logo1.png' %}" alt="" class="logo float-left">
                 <button class="search-close btn btn-icon bg-transparent float-right mt-2">
                     <i class="i-Close-Window text-22 text-muted"></i>
                 </button>
@@ -596,11 +660,17 @@
         <script src="{% static 'js/vendor/perfect-scrollbar.min.js' %}"></script>
         <script src="{% static 'js/vendor/echarts.min.js' %}"></script>
 
+        
+        <script src="{% static 'js/vendor/datatables.min.js' %}"></script>
+        <script src="{% static 'js/vendor/apexcharts.min.js' %}"></script>     <!-- check this js for circule chart -->
+        <script src="{% static 'js/es5/dashboard.v2.script.min.js' %}"></script>
+
         <script src="{% static 'js/es5/echart.options.min.js' %}"></script>
         <script src="{% static 'js/es5/dashboard.v1.script.min.js' %}"></script>
-
         <script src="{% static 'js/es5/script.min.js' %}"></script>
         <script src="{% static 'js/es5/sidebar.large.script.min.js' %}"></script>
+
+
     </body>
 
 </html>

@@ -7,6 +7,7 @@ from accounts.models import ishospital,hospitalinfo
 from django.http import HttpResponse
 from django.contrib import messages
 from pymongo import MongoClient, errors
+from se.settings import BASE_DIR
 
 # Create your views here.
 @csrf_exempt
@@ -92,7 +93,10 @@ def signup_government(request):
         return render(request,'signup_government.html')
 
     
-
+@csrf_exempt
+def logout(request):
+    auth.logout(request)
+    return redirect('signin')
 
 @csrf_exempt
 def signin(request):
@@ -105,8 +109,34 @@ def signin(request):
             messages.info(request,"Register first!!")
             return redirect('signin')
 
+
+        # if obj.password != password:
+        #     messages.info(request,"Invalid credentials!!")
+        #     return redirect('signin')
+
+        user1=auth.authenticate(username=username,password=password)
+        if user1 == None:
+            messages.info(request,"Invalid credentials1!!")
+            return redirect('signin')
+
+
+
+
         obj1=User.objects.get(username=username)
-        user1=ishospital.objects.get
+        hospital_check=ishospital.objects.get(username=obj1.username)
+
+        if(hospital_check.hospital):  # redirected to hospital.
+            auth.login(request,user1)
+            return redirect('homehospital')
+
+        else: # redirected to government.
+            auth.login(request,user1)
+            return redirect('homegovernment')
+
+        
+
+
+
 
 
         # if obj1.password != password:
@@ -207,10 +237,27 @@ def showrequest(request):
 
 @csrf_exempt
 def homehospital(request):
-    return render(request,'homehospital.html')
+
+    if not request.user.is_authenticated :  # login check
+        return redirect('signin')
+
+    username=request.user.username
+    print("user name",username)
+    hospital_obj=hospitalinfo.objects.get(username=username)
+    hospital_name=hospital_obj.hospitalname
+    auth.logout(request)
+
+
+
+
+    return render(request,'homehospital.html',{'hospital_name':hospital_name})
 
 @csrf_exempt
 def homegovernment(request):
+
+    # if not request.user.is_authenticated :  # login check
+    #     return redirect('signin')
+ 
     return render(request,'homegovernment.html')
 
 @csrf_exempt
