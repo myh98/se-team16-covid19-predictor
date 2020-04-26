@@ -1,0 +1,661 @@
+date,new,death,zone
+2020-03-14,1.0,0.0,Karwan
+2020-03-15,1.0,0.0,Karwan
+2020-03-16,0.0,0.0,Karwan
+2020-03-17,0.0,0.0,Karwan
+2020-03-18,0.0,0.0,Karwan
+2020-03-19,1.0,0.0,Karwan
+2020-03-20,0.0,0.0,Karwan
+2020-03-21,2.0,0.0,Karwan
+2020-03-22,1.0,0.0,Karwan
+2020-03-23,2.0,0.0,Karwan
+2020-03-24,1.0,0.0,Karwan
+2020-03-25,5.0,0.0,Karwan
+2020-03-26,5.0,0.0,Karwan
+2020-03-27,2.0,0.0,Karwan
+2020-03-28,1.0,0.0,Karwan
+2020-03-29,0.0,0.0,Karwan
+2020-03-30,5.0,0.0,Karwan
+2020-03-31,1.0,0.0,Karwan
+2020-04-01,1.0,0.0,Karwan
+2020-04-02,7.0,0.0,Karwan
+2020-04-03,4.0,0.0,Karwan
+2020-04-04,3.0,0.0,Karwan
+2020-03-13,0.0,0.0,Malkajgiri
+2020-03-14,0.0,0.0,Malkajgiri
+2020-03-15,0.0,0.0,Malkajgiri
+2020-03-16,0.0,0.0,Malkajgiri
+2020-03-17,1.0,0.0,Malkajgiri
+2020-03-18,2.0,0.0,Malkajgiri
+2020-03-19,0.0,0.0,Malkajgiri
+2020-03-20,0.0,0.0,Malkajgiri
+2020-03-21,1.0,0.0,Malkajgiri
+2020-03-22,1.0,0.0,Malkajgiri
+2020-03-23,11.0,0.0,Malkajgiri
+2020-03-24,0.0,0.0,Malkajgiri
+2020-03-25,11.0,0.0,Malkajgiri
+2020-03-26,5.0,0.0,Malkajgiri
+2020-03-27,10.0,1.0,Malkajgiri
+2020-03-28,11.0,0.0,Malkajgiri
+2020-03-29,5.0,1.0,Malkajgiri
+2020-03-30,2.0,0.0,Malkajgiri
+2020-03-31,4.0,0.0,Malkajgiri
+2020-04-01,2.0,0.0,Malkajgiri
+2020-04-02,-1.0,0.0,Malkajgiri
+2020-04-03,7.0,0.0,Malkajgiri
+2020-01-27,0.0,0.0,Malakpet
+2020-01-28,0.0,0.0,Malakpet
+2020-01-29,0.0,0.0,Malakpet
+2020-01-30,0.0,0.0,Malakpet
+2020-01-31,0.0,0.0,Malakpet
+2020-02-01,0.0,0.0,Malakpet
+2020-02-02,0.0,0.0,Malakpet
+2020-02-03,0.0,0.0,Malakpet
+2020-02-04,0.0,0.0,Malakpet
+2020-02-05,0.0,0.0,Malakpet
+2020-02-06,0.0,0.0,Malakpet
+2020-02-07,0.0,0.0,Malakpet
+2020-02-08,0.0,0.0,Malakpet
+2020-02-09,0.0,0.0,Malakpet
+2020-02-10,0.0,0.0,Malakpet
+2020-02-11,0.0,0.0,Malakpet
+2020-02-12,0.0,0.0,Malakpet
+2020-02-13,0.0,0.0,Malakpet
+2020-02-14,0.0,0.0,Malakpet
+2020-02-15,0.0,0.0,Malakpet
+2020-02-16,0.0,0.0,Malakpet
+2020-02-17,0.0,0.0,Malakpet
+2020-03-11,0.0,0.0,Uppal
+2020-03-12,2.0,0.0,Uppal
+2020-03-13,5.0,0.0,Uppal
+2020-03-14,0.0,0.0,Uppal
+2020-03-15,0.0,0.0,Uppal
+2020-03-16,1.0,0.0,Uppal
+2020-03-17,4.0,0.0,Uppal
+2020-03-18,1.0,2.0,Uppal
+2020-03-19,3.0,0.0,Uppal
+2020-03-20,8.0,0.0,Uppal
+2020-03-21,6.0,0.0,Uppal
+2020-03-22,10.0,0.0,Uppal
+2020-03-23,10.0,0.0,Uppal
+2020-03-24,9.0,0.0,Uppal
+2020-03-25,11.0,1.0,Uppal
+2020-03-26,12.0,0.0,Uppal
+2020-03-27,10.0,1.0,Uppal
+2020-03-28,15.0,0.0,Uppal
+2020-03-29,13.0,1.0,Uppal
+2020-03-30,15.0,1.0,Uppal
+2020-03-31,15.0,2.0,Uppal
+2020-04-01,10.0,0.0,Uppal
+2020-03-07,0.0,0.0,Yousufguda
+2020-03-08,0.0,0.0,Yousufguda
+2020-03-09,0.0,0.0,Yousufguda
+2020-03-10,0.0,0.0,Yousufguda
+2020-03-11,0.0,0.0,Yousufguda
+2020-03-12,0.0,0.0,Yousufguda
+2020-03-13,1.0,0.0,Yousufguda
+2020-03-14,0.0,0.0,Yousufguda
+2020-03-15,0.0,0.0,Yousufguda
+2020-03-16,0.0,0.0,Yousufguda
+2020-03-17,2.0,0.0,Yousufguda
+2020-03-18,1.0,0.0,Yousufguda
+2020-03-19,0.0,0.0,Yousufguda
+2020-03-20,1.0,0.0,Yousufguda
+2020-03-21,0.0,0.0,Yousufguda
+2020-03-22,0.0,1.0,Yousufguda
+2020-03-23,2.0,0.0,Yousufguda
+2020-03-24,2.0,0.0,Yousufguda
+2020-03-25,1.0,0.0,Yousufguda
+2020-03-26,0.0,0.0,Yousufguda
+2020-03-27,5.0,0.0,Yousufguda
+2020-03-28,0.0,0.0,Yousufguda
+2020-03-07,0.0,0.0,Jubilee Hills
+2020-03-08,0.0,0.0,Jubilee Hills
+2020-03-09,1.0,0.0,Jubilee Hills
+2020-03-10,1.0,0.0,Jubilee Hills
+2020-03-11,1.0,0.0,Jubilee Hills
+2020-03-12,7.0,0.0,Jubilee Hills
+2020-03-13,5.0,0.0,Jubilee Hills
+2020-03-14,4.0,0.0,Jubilee Hills
+2020-03-15,4.0,0.0,Jubilee Hills
+2020-03-16,10.0,0.0,Jubilee Hills
+2020-03-17,0.0,0.0,Jubilee Hills
+2020-03-18,5.0,0.0,Jubilee Hills
+2020-03-19,12.0,0.0,Jubilee Hills
+2020-03-20,10.0,0.0,Jubilee Hills
+2020-03-21,13.0,1.0,Jubilee Hills
+2020-03-22,6.0,0.0,Jubilee Hills
+2020-03-23,12.0,0.0,Jubilee Hills
+2020-03-24,4.0,0.0,Jubilee Hills
+2020-03-25,24.0,0.0,Jubilee Hills
+2020-03-26,27.0,0.0,Jubilee Hills
+2020-03-27,23.0,0.0,Jubilee Hills
+2020-03-28,12.0,1.0,Jubilee Hills
+2020-03-10,0.0,0.0,Khairatabad
+2020-03-11,0.0,0.0,Khairatabad
+2020-03-12,0.0,0.0,Khairatabad
+2020-03-13,0.0,0.0,Khairatabad
+2020-03-14,0.0,0.0,Khairatabad
+2020-03-15,0.0,0.0,Khairatabad
+2020-03-16,1.0,0.0,Khairatabad
+2020-03-17,0.0,0.0,Khairatabad
+2020-03-18,2.0,0.0,Khairatabad
+2020-03-19,1.0,0.0,Khairatabad
+2020-03-20,2.0,0.0,Khairatabad
+2020-03-21,12.0,0.0,Khairatabad
+2020-03-22,13.0,0.0,Khairatabad
+2020-03-23,2.0,0.0,Khairatabad
+2020-03-24,9.0,0.0,Khairatabad
+2020-03-25,2.0,1.0,Khairatabad
+2020-03-26,16.0,0.0,Khairatabad
+2020-03-27,6.0,0.0,Khairatabad
+2020-03-28,12.0,2.0,Khairatabad
+2020-03-29,5.0,0.0,Khairatabad
+2020-03-30,8.0,1.0,Khairatabad
+2020-03-31,7.0,2.0,Khairatabad
+2020-03-09,1.0,0.0,Goshamahal
+2020-03-10,0.0,0.0,Goshamahal
+2020-03-11,1.0,0.0,Goshamahal
+2020-03-12,2.0,0.0,Goshamahal
+2020-03-13,3.0,0.0,Goshamahal
+2020-03-14,7.0,0.0,Goshamahal
+2020-03-15,1.0,0.0,Goshamahal
+2020-03-16,13.0,0.0,Goshamahal
+2020-03-17,19.0,0.0,Goshamahal
+2020-03-18,21.0,1.0,Goshamahal
+2020-03-19,33.0,3.0,Goshamahal
+2020-03-20,20.0,0.0,Goshamahal
+2020-03-21,18.0,0.0,Goshamahal
+2020-03-22,68.0,1.0,Goshamahal
+2020-03-23,62.0,1.0,Goshamahal
+2020-03-24,114.0,1.0,Goshamahal
+2020-03-25,162.0,5.0,Goshamahal
+2020-03-26,61.0,1.0,Goshamahal
+2020-03-27,145.0,2.0,Goshamahal
+2020-03-28,156.0,5.0,Goshamahal
+2020-03-29,337.0,1.0,Goshamahal
+2020-03-30,200.0,0.0,Goshamahal
+2020-03-14,0.0,0.0,Santhoshnagar
+2020-03-15,0.0,0.0,Santhoshnagar
+2020-03-16,3.0,0.0,Santhoshnagar
+2020-03-17,3.0,0.0,Santhoshnagar
+2020-03-18,1.0,0.0,Santhoshnagar
+2020-03-19,5.0,0.0,Santhoshnagar
+2020-03-20,0.0,0.0,Santhoshnagar
+2020-03-21,8.0,0.0,Santhoshnagar
+2020-03-22,3.0,0.0,Santhoshnagar
+2020-03-23,1.0,0.0,Santhoshnagar
+2020-03-24,1.0,0.0,Santhoshnagar
+2020-03-25,13.0,0.0,Santhoshnagar
+2020-03-26,6.0,0.0,Santhoshnagar
+2020-03-27,11.0,0.0,Santhoshnagar
+2020-03-28,18.0,0.0,Santhoshnagar
+2020-03-29,15.0,0.0,Santhoshnagar
+2020-03-30,5.0,1.0,Santhoshnagar
+2020-03-31,16.0,0.0,Santhoshnagar
+2020-04-01,30.0,0.0,Santhoshnagar
+2020-04-02,30.0,3.0,Santhoshnagar
+2020-04-03,31.0,0.0,Santhoshnagar
+2020-04-04,15.0,0.0,Santhoshnagar
+2020-03-06,0.0,1.0,Moosapet
+2020-03-07,0.0,0.0,Moosapet
+2020-03-08,0.0,0.0,Moosapet
+2020-03-09,0.0,0.0,Moosapet
+2020-03-10,0.0,0.0,Moosapet
+2020-03-11,0.0,0.0,Moosapet
+2020-03-12,0.0,0.0,Moosapet
+2020-03-13,0.0,0.0,Moosapet
+2020-03-14,0.0,0.0,Moosapet
+2020-03-15,0.0,0.0,Moosapet
+2020-03-16,0.0,0.0,Moosapet
+2020-03-17,0.0,0.0,Moosapet
+2020-03-18,0.0,0.0,Moosapet
+2020-03-19,0.0,0.0,Moosapet
+2020-03-20,1.0,0.0,Moosapet
+2020-03-21,0.0,0.0,Moosapet
+2020-03-22,1.0,0.0,Moosapet
+2020-03-23,1.0,0.0,Moosapet
+2020-03-24,2.0,0.0,Moosapet
+2020-03-25,2.0,0.0,Moosapet
+2020-03-26,4.0,0.0,Moosapet
+2020-03-27,1.0,0.0,Moosapet
+2020-03-08,0.0,0.0,Serilingampally
+2020-03-09,1.0,0.0,Serilingampally
+2020-03-10,0.0,0.0,Serilingampally
+2020-03-11,0.0,0.0,Serilingampally
+2020-03-12,0.0,0.0,Serilingampally
+2020-03-13,0.0,0.0,Serilingampally
+2020-03-14,0.0,0.0,Serilingampally
+2020-03-15,2.0,0.0,Serilingampally
+2020-03-16,1.0,0.0,Serilingampally
+2020-03-17,2.0,0.0,Serilingampally
+2020-03-18,0.0,0.0,Serilingampally
+2020-03-19,5.0,0.0,Serilingampally
+2020-03-20,11.0,1.0,Serilingampally
+2020-03-21,0.0,0.0,Serilingampally
+2020-03-22,4.0,0.0,Serilingampally
+2020-03-23,8.0,0.0,Serilingampally
+2020-03-24,11.0,0.0,Serilingampally
+2020-03-25,23.0,0.0,Serilingampally
+2020-03-26,10.0,0.0,Serilingampally
+2020-03-27,42.0,0.0,Serilingampally
+2020-03-28,10.0,0.0,Serilingampally
+2020-03-29,14.0,0.0,Serilingampally
+2020-03-18,0.0,0.0,Kukatpally
+2020-03-19,0.0,0.0,Kukatpally
+2020-03-20,0.0,0.0,Kukatpally
+2020-03-21,1.0,0.0,Kukatpally
+2020-03-22,0.0,0.0,Kukatpally
+2020-03-23,0.0,0.0,Kukatpally
+2020-03-24,0.0,0.0,Kukatpally
+2020-03-25,0.0,0.0,Kukatpally
+2020-03-26,0.0,0.0,Kukatpally
+2020-03-27,0.0,0.0,Kukatpally
+2020-03-28,0.0,0.0,Kukatpally
+2020-03-29,0.0,0.0,Kukatpally
+2020-03-30,0.0,0.0,Kukatpally
+2020-03-31,2.0,0.0,Kukatpally
+2020-04-01,0.0,0.0,Kukatpally
+2020-04-02,0.0,0.0,Kukatpally
+2020-04-03,0.0,0.0,Kukatpally
+2020-04-04,0.0,0.0,Kukatpally
+2020-04-05,0.0,0.0,Kukatpally
+2020-04-06,0.0,0.0,Kukatpally
+2020-04-07,0.0,0.0,Kukatpally
+2020-04-08,0.0,0.0,Kukatpally
+2020-03-19,0.0,0.0,Saroornagar
+2020-03-20,0.0,0.0,Saroornagar
+2020-03-21,0.0,0.0,Saroornagar
+2020-03-22,0.0,0.0,Saroornagar
+2020-03-23,1.0,0.0,Saroornagar
+2020-03-24,1.0,0.0,Saroornagar
+2020-03-25,0.0,0.0,Saroornagar
+2020-03-26,0.0,0.0,Saroornagar
+2020-03-27,0.0,0.0,Saroornagar
+2020-03-28,1.0,1.0,Saroornagar
+2020-03-29,0.0,1.0,Saroornagar
+2020-03-30,1.0,0.0,Saroornagar
+2020-03-31,1.0,-1.0,Saroornagar
+2020-04-01,0.0,0.0,Saroornagar
+2020-04-02,0.0,0.0,Saroornagar
+2020-04-03,0.0,0.0,Saroornagar
+2020-04-04,1.0,0.0,Saroornagar
+2020-04-05,1.0,0.0,Saroornagar
+2020-04-06,3.0,0.0,Saroornagar
+2020-04-07,4.0,0.0,Saroornagar
+2020-04-08,2.0,0.0,Saroornagar
+2020-04-09,0.0,0.0,Saroornagar
+2020-03-16,0.0,0.0,Gajula Ramaram
+2020-03-17,0.0,0.0,Gajula Ramaram
+2020-03-18,0.0,0.0,Gajula Ramaram
+2020-03-19,0.0,0.0,Gajula Ramaram
+2020-03-20,1.0,0.0,Gajula Ramaram
+2020-03-21,2.0,0.0,Gajula Ramaram
+2020-03-22,0.0,0.0,Gajula Ramaram
+2020-03-23,1.0,0.0,Gajula Ramaram
+2020-03-24,0.0,0.0,Gajula Ramaram
+2020-03-25,1.0,0.0,Gajula Ramaram
+2020-03-26,0.0,0.0,Gajula Ramaram
+2020-03-27,0.0,1.0,Gajula Ramaram
+2020-03-28,0.0,0.0,Gajula Ramaram
+2020-03-29,0.0,0.0,Gajula Ramaram
+2020-03-30,0.0,0.0,Gajula Ramaram
+2020-03-31,0.0,0.0,Gajula Ramaram
+2020-04-01,0.0,0.0,Gajula Ramaram
+2020-04-02,8.0,0.0,Gajula Ramaram
+2020-04-03,1.0,0.0,Gajula Ramaram
+2020-04-04,0.0,0.0,Gajula Ramaram
+2020-04-05,1.0,0.0,Gajula Ramaram
+2020-04-06,1.0,0.0,Gajula Ramaram
+2020-03-19,0.0,0.0,Chandrayangutta
+2020-03-20,0.0,0.0,Chandrayangutta
+2020-03-21,2.0,0.0,Chandrayangutta
+2020-03-22,4.0,0.0,Chandrayangutta
+2020-03-23,0.0,0.0,Chandrayangutta
+2020-03-24,1.0,0.0,Chandrayangutta
+2020-03-25,4.0,0.0,Chandrayangutta
+2020-03-26,0.0,0.0,Chandrayangutta
+2020-03-27,3.0,0.0,Chandrayangutta
+2020-03-28,3.0,1.0,Chandrayangutta
+2020-03-29,1.0,0.0,Chandrayangutta
+2020-03-30,1.0,1.0,Chandrayangutta
+2020-03-31,1.0,0.0,Chandrayangutta
+2020-04-01,5.0,0.0,Chandrayangutta
+2020-04-02,5.0,1.0,Chandrayangutta
+2020-04-03,0.0,0.0,Chandrayangutta
+2020-04-04,1.0,0.0,Chandrayangutta
+2020-04-05,22.0,0.0,Chandrayangutta
+2020-04-06,0.0,0.0,Chandrayangutta
+2020-04-07,21.0,5.0,Chandrayangutta
+2020-04-08,0.0,0.0,Chandrayangutta
+2020-04-09,5.0,0.0,Chandrayangutta
+2020-03-15,0.0,0.0,Amberpet
+2020-03-16,0.0,0.0,Amberpet
+2020-03-17,0.0,0.0,Amberpet
+2020-03-18,1.0,0.0,Amberpet
+2020-03-19,1.0,0.0,Amberpet
+2020-03-20,3.0,0.0,Amberpet
+2020-03-21,3.0,0.0,Amberpet
+2020-03-22,1.0,0.0,Amberpet
+2020-03-23,6.0,0.0,Amberpet
+2020-03-24,5.0,0.0,Amberpet
+2020-03-25,6.0,2.0,Amberpet
+2020-03-26,11.0,0.0,Amberpet
+2020-03-27,3.0,1.0,Amberpet
+2020-03-28,13.0,0.0,Amberpet
+2020-03-29,3.0,2.0,Amberpet
+2020-03-30,18.0,3.0,Amberpet
+2020-03-31,29.0,4.0,Amberpet
+2020-04-01,14.0,1.0,Amberpet
+2020-04-02,156.0,1.0,Amberpet
+2020-04-03,16.0,3.0,Amberpet
+2020-04-04,48.0,6.0,Amberpet
+2020-04-05,7.0,1.0,Amberpet
+2020-03-18,0.0,0.0,Quthbullapur
+2020-03-19,0.0,0.0,Quthbullapur
+2020-03-20,0.0,0.0,Quthbullapur
+2020-03-21,0.0,0.0,Quthbullapur
+2020-03-22,0.0,0.0,Quthbullapur
+2020-03-23,0.0,0.0,Quthbullapur
+2020-03-24,5.0,0.0,Quthbullapur
+2020-03-25,6.0,0.0,Quthbullapur
+2020-03-26,5.0,0.0,Quthbullapur
+2020-03-27,0.0,0.0,Quthbullapur
+2020-03-28,3.0,0.0,Quthbullapur
+2020-03-29,8.0,1.0,Quthbullapur
+2020-03-30,9.0,0.0,Quthbullapur
+2020-03-31,10.0,0.0,Quthbullapur
+2020-04-01,9.0,1.0,Quthbullapur
+2020-04-02,11.0,0.0,Quthbullapur
+2020-04-03,2.0,1.0,Quthbullapur
+2020-04-04,12.0,0.0,Quthbullapur
+2020-04-05,9.0,0.0,Quthbullapur
+2020-04-06,13.0,1.0,Quthbullapur
+2020-04-07,11.0,0.0,Quthbullapur
+2020-04-08,12.0,0.0,Quthbullapur
+2020-03-06,0.0,0.0,Secunderabad Division
+2020-03-07,0.0,0.0,Secunderabad Division
+2020-03-08,1.0,0.0,Secunderabad Division
+2020-03-09,0.0,0.0,Secunderabad Division
+2020-03-10,0.0,0.0,Secunderabad Division
+2020-03-11,3.0,0.0,Secunderabad Division
+2020-03-12,3.0,0.0,Secunderabad Division
+2020-03-13,8.0,0.0,Secunderabad Division
+2020-03-14,0.0,0.0,Secunderabad Division
+2020-03-15,0.0,0.0,Secunderabad Division
+2020-03-16,19.0,1.0,Secunderabad Division
+2020-03-17,7.0,0.0,Secunderabad Division
+2020-03-18,27.0,0.0,Secunderabad Division
+2020-03-19,5.0,0.0,Secunderabad Division
+2020-03-20,52.0,1.0,Secunderabad Division
+2020-03-21,0.0,0.0,Secunderabad Division
+2020-03-22,0.0,0.0,Secunderabad Division
+2020-03-23,25.0,2.0,Secunderabad Division
+2020-03-24,98.0,2.0,Secunderabad Division
+2020-03-25,0.0,0.0,Secunderabad Division
+2020-03-26,101.0,4.0,Secunderabad Division
+2020-03-27,93.0,0.0,Secunderabad Division
+2020-03-17,0.0,0.0,Charminar
+2020-03-18,3.0,0.0,Charminar
+2020-03-19,0.0,0.0,Charminar
+2020-03-20,1.0,0.0,Charminar
+2020-03-21,0.0,0.0,Charminar
+2020-03-22,1.0,0.0,Charminar
+2020-03-23,1.0,0.0,Charminar
+2020-03-24,0.0,0.0,Charminar
+2020-03-25,0.0,0.0,Charminar
+2020-03-26,0.0,0.0,Charminar
+2020-03-27,1.0,0.0,Charminar
+2020-03-28,0.0,0.0,Charminar
+2020-03-29,2.0,0.0,Charminar
+2020-03-30,0.0,0.0,Charminar
+2020-03-31,2.0,0.0,Charminar
+2020-04-01,2.0,0.0,Charminar
+2020-04-02,0.0,0.0,Charminar
+2020-04-03,3.0,0.0,Charminar
+2020-04-04,0.0,0.0,Charminar
+2020-04-05,2.0,0.0,Charminar
+2020-04-06,0.0,0.0,Charminar
+2020-04-07,0.0,0.0,Charminar
+2020-03-12,1.0,0.0,Hayathnagar
+2020-03-13,1.0,0.0,Hayathnagar
+2020-03-14,0.0,0.0,Hayathnagar
+2020-03-15,0.0,0.0,Hayathnagar
+2020-03-16,0.0,0.0,Hayathnagar
+2020-03-17,1.0,0.0,Hayathnagar
+2020-03-18,2.0,0.0,Hayathnagar
+2020-03-19,1.0,0.0,Hayathnagar
+2020-03-20,0.0,0.0,Hayathnagar
+2020-03-21,1.0,0.0,Hayathnagar
+2020-03-22,2.0,0.0,Hayathnagar
+2020-03-23,2.0,0.0,Hayathnagar
+2020-03-24,2.0,0.0,Hayathnagar
+2020-03-25,3.0,0.0,Hayathnagar
+2020-03-26,5.0,0.0,Hayathnagar
+2020-03-27,7.0,0.0,Hayathnagar
+2020-03-28,1.0,0.0,Hayathnagar
+2020-03-29,4.0,0.0,Hayathnagar
+2020-03-30,4.0,0.0,Hayathnagar
+2020-03-31,4.0,0.0,Hayathnagar
+2020-04-01,6.0,0.0,Hayathnagar
+2020-04-02,0.0,0.0,Hayathnagar
+2020-03-14,0.0,0.0,Begumpet
+2020-03-15,0.0,0.0,Begumpet
+2020-03-16,0.0,0.0,Begumpet
+2020-03-17,0.0,0.0,Begumpet
+2020-03-18,0.0,0.0,Begumpet
+2020-03-19,0.0,0.0,Begumpet
+2020-03-20,0.0,0.0,Begumpet
+2020-03-21,0.0,0.0,Begumpet
+2020-03-22,0.0,0.0,Begumpet
+2020-03-23,0.0,0.0,Begumpet
+2020-03-24,1.0,0.0,Begumpet
+2020-03-25,0.0,0.0,Begumpet
+2020-03-26,-1.0,0.0,Begumpet
+2020-03-27,2.0,0.0,Begumpet
+2020-03-28,0.0,0.0,Begumpet
+2020-03-29,0.0,0.0,Begumpet
+2020-03-30,1.0,0.0,Begumpet
+2020-03-31,0.0,0.0,Begumpet
+2020-04-01,0.0,0.0,Begumpet
+2020-04-02,2.0,0.0,Begumpet
+2020-04-03,3.0,0.0,Begumpet
+2020-04-04,2.0,0.0,Begumpet
+2020-03-16,0.0,0.0,Mehdipatnam
+2020-03-17,0.0,0.0,Mehdipatnam
+2020-03-18,0.0,0.0,Mehdipatnam
+2020-03-19,1.0,0.0,Mehdipatnam
+2020-03-20,0.0,0.0,Mehdipatnam
+2020-03-21,0.0,0.0,Mehdipatnam
+2020-03-22,0.0,0.0,Mehdipatnam
+2020-03-23,1.0,0.0,Mehdipatnam
+2020-03-24,0.0,0.0,Mehdipatnam
+2020-03-25,2.0,0.0,Mehdipatnam
+2020-03-26,2.0,0.0,Mehdipatnam
+2020-03-27,0.0,0.0,Mehdipatnam
+2020-03-28,2.0,0.0,Mehdipatnam
+2020-03-29,1.0,0.0,Mehdipatnam
+2020-03-30,1.0,0.0,Mehdipatnam
+2020-03-31,4.0,0.0,Mehdipatnam
+2020-04-01,0.0,0.0,Mehdipatnam
+2020-04-02,2.0,0.0,Mehdipatnam
+2020-04-03,3.0,0.0,Mehdipatnam
+2020-04-04,3.0,1.0,Mehdipatnam
+2020-04-05,5.0,0.0,Mehdipatnam
+2020-04-06,1.0,1.0,Mehdipatnam
+2020-03-18,0.0,0.0,Kapra
+2020-03-19,9.0,0.0,Kapra
+2020-03-20,2.0,0.0,Kapra
+2020-03-21,1.0,0.0,Kapra
+2020-03-22,1.0,0.0,Kapra
+2020-03-23,1.0,0.0,Kapra
+2020-03-24,2.0,0.0,Kapra
+2020-03-25,0.0,0.0,Kapra
+2020-03-26,5.0,0.0,Kapra
+2020-03-27,2.0,0.0,Kapra
+2020-03-28,3.0,0.0,Kapra
+2020-03-29,0.0,0.0,Kapra
+2020-03-30,1.0,0.0,Kapra
+2020-03-31,1.0,0.0,Kapra
+2020-04-01,2.0,0.0,Kapra
+2020-04-02,0.0,0.0,Kapra
+2020-04-03,0.0,0.0,Kapra
+2020-04-04,2.0,0.0,Kapra
+2020-04-05,3.0,0.0,Kapra
+2020-04-06,1.0,0.0,Kapra
+2020-04-07,1.0,0.0,Kapra
+2020-04-08,3.0,0.0,Kapra
+2020-03-17,0.0,0.0,LB Nagar
+2020-03-18,1.0,0.0,LB Nagar
+2020-03-19,0.0,0.0,LB Nagar
+2020-03-20,0.0,0.0,LB Nagar
+2020-03-21,0.0,0.0,LB Nagar
+2020-03-22,2.0,0.0,LB Nagar
+2020-03-23,0.0,0.0,LB Nagar
+2020-03-24,0.0,0.0,LB Nagar
+2020-03-25,2.0,0.0,LB Nagar
+2020-03-26,0.0,0.0,LB Nagar
+2020-03-27,0.0,0.0,LB Nagar
+2020-03-28,3.0,0.0,LB Nagar
+2020-03-29,0.0,0.0,LB Nagar
+2020-03-30,1.0,0.0,LB Nagar
+2020-03-31,2.0,1.0,LB Nagar
+2020-04-01,1.0,0.0,LB Nagar
+2020-04-02,2.0,0.0,LB Nagar
+2020-04-03,2.0,0.0,LB Nagar
+2020-04-04,2.0,0.0,LB Nagar
+2020-04-05,0.0,0.0,LB Nagar
+2020-04-06,2.0,0.0,LB Nagar
+2020-04-07,0.0,0.0,LB Nagar
+2020-03-07,0.0,0.0,Alwal
+2020-03-08,3.0,0.0,Alwal
+2020-03-09,1.0,0.0,Alwal
+2020-03-10,2.0,0.0,Alwal
+2020-03-11,0.0,0.0,Alwal
+2020-03-12,1.0,0.0,Alwal
+2020-03-13,1.0,0.0,Alwal
+2020-03-14,2.0,0.0,Alwal
+2020-03-15,3.0,0.0,Alwal
+2020-03-16,3.0,0.0,Alwal
+2020-03-17,5.0,0.0,Alwal
+2020-03-18,3.0,0.0,Alwal
+2020-03-19,4.0,0.0,Alwal
+2020-03-20,7.0,0.0,Alwal
+2020-03-21,6.0,0.0,Alwal
+2020-03-22,2.0,0.0,Alwal
+2020-03-23,10.0,1.0,Alwal
+2020-03-24,4.0,0.0,Alwal
+2020-03-25,5.0,0.0,Alwal
+2020-03-26,1.0,0.0,Alwal
+2020-03-27,6.0,1.0,Alwal
+2020-03-28,7.0,0.0,Alwal
+2020-03-15,0.0,0.0,Musheerabad
+2020-03-16,0.0,0.0,Musheerabad
+2020-03-17,0.0,0.0,Musheerabad
+2020-03-18,2.0,0.0,Musheerabad
+2020-03-19,2.0,0.0,Musheerabad
+2020-03-20,1.0,0.0,Musheerabad
+2020-03-21,0.0,0.0,Musheerabad
+2020-03-22,0.0,0.0,Musheerabad
+2020-03-23,0.0,0.0,Musheerabad
+2020-03-24,0.0,0.0,Musheerabad
+2020-03-25,1.0,0.0,Musheerabad
+2020-03-26,2.0,0.0,Musheerabad
+2020-03-27,4.0,0.0,Musheerabad
+2020-03-28,0.0,0.0,Musheerabad
+2020-03-29,0.0,0.0,Musheerabad
+2020-03-30,3.0,0.0,Musheerabad
+2020-03-31,8.0,0.0,Musheerabad
+2020-04-01,14.0,0.0,Musheerabad
+2020-04-02,4.0,0.0,Musheerabad
+2020-04-03,5.0,0.0,Musheerabad
+2020-04-04,0.0,0.0,Musheerabad
+2020-04-05,3.0,0.0,Musheerabad
+2020-03-11,0.0,0.0,Falakunuma
+2020-03-12,0.0,0.0,Falakunuma
+2020-03-13,0.0,0.0,Falakunuma
+2020-03-14,0.0,0.0,Falakunuma
+2020-03-15,0.0,0.0,Falakunuma
+2020-03-16,2.0,0.0,Falakunuma
+2020-03-17,0.0,0.0,Falakunuma
+2020-03-18,0.0,0.0,Falakunuma
+2020-03-19,0.0,0.0,Falakunuma
+2020-03-20,1.0,0.0,Falakunuma
+2020-03-21,0.0,0.0,Falakunuma
+2020-03-22,9.0,0.0,Falakunuma
+2020-03-23,2.0,0.0,Falakunuma
+2020-03-24,0.0,0.0,Falakunuma
+2020-03-25,8.0,0.0,Falakunuma
+2020-03-26,8.0,0.0,Falakunuma
+2020-03-27,15.0,0.0,Falakunuma
+2020-03-28,1.0,0.0,Falakunuma
+2020-03-29,17.0,0.0,Falakunuma
+2020-03-30,2.0,0.0,Falakunuma
+2020-03-31,15.0,0.0,Falakunuma
+2020-04-01,29.0,2.0,Falakunuma
+2020-03-18,0.0,0.0,Rajendra Nagar
+2020-03-19,0.0,0.0,Rajendra Nagar
+2020-03-20,1.0,0.0,Rajendra Nagar
+2020-03-21,4.0,0.0,Rajendra Nagar
+2020-03-22,1.0,0.0,Rajendra Nagar
+2020-03-23,3.0,0.0,Rajendra Nagar
+2020-03-24,3.0,0.0,Rajendra Nagar
+2020-03-25,6.0,2.0,Rajendra Nagar
+2020-03-26,8.0,1.0,Rajendra Nagar
+2020-03-27,0.0,0.0,Rajendra Nagar
+2020-03-28,3.0,0.0,Rajendra Nagar
+2020-03-29,9.0,0.0,Rajendra Nagar
+2020-03-30,4.0,0.0,Rajendra Nagar
+2020-03-31,18.0,0.0,Rajendra Nagar
+2020-04-01,16.0,0.0,Rajendra Nagar
+2020-04-02,9.0,0.0,Rajendra Nagar
+2020-04-03,25.0,13.0,Rajendra Nagar
+2020-04-04,62.0,0.0,Rajendra Nagar
+2020-04-05,20.0,0.0,Rajendra Nagar
+2020-04-06,13.0,0.0,Rajendra Nagar
+2020-04-07,60.0,0.0,Rajendra Nagar
+2020-04-08,24.0,17.0,Rajendra Nagar
+2020-03-13,0.0,0.0,Ramachandra Puram / Patancheru
+2020-03-14,0.0,0.0,Ramachandra Puram / Patancheru
+2020-03-15,0.0,0.0,Ramachandra Puram / Patancheru
+2020-03-16,0.0,0.0,Ramachandra Puram / Patancheru
+2020-03-17,0.0,0.0,Ramachandra Puram / Patancheru
+2020-03-18,0.0,0.0,Ramachandra Puram / Patancheru
+2020-03-19,0.0,0.0,Ramachandra Puram / Patancheru
+2020-03-20,0.0,0.0,Ramachandra Puram / Patancheru
+2020-03-21,0.0,0.0,Ramachandra Puram / Patancheru
+2020-03-22,0.0,0.0,Ramachandra Puram / Patancheru
+2020-03-23,0.0,0.0,Ramachandra Puram / Patancheru
+2020-03-24,0.0,0.0,Ramachandra Puram / Patancheru
+2020-03-25,0.0,0.0,Ramachandra Puram / Patancheru
+2020-03-26,0.0,0.0,Ramachandra Puram / Patancheru
+2020-03-27,0.0,0.0,Ramachandra Puram / Patancheru
+2020-03-28,0.0,0.0,Ramachandra Puram / Patancheru
+2020-03-29,0.0,0.0,Ramachandra Puram / Patancheru
+2020-03-30,0.0,0.0,Ramachandra Puram / Patancheru
+2020-03-31,0.0,0.0,Ramachandra Puram / Patancheru
+2020-04-01,0.0,0.0,Ramachandra Puram / Patancheru
+2020-04-02,1.0,0.0,Ramachandra Puram / Patancheru
+2020-04-03,1.0,0.0,Ramachandra Puram / Patancheru
+2020-03-11,0.0,0.0,Chandanagar
+2020-03-12,0.0,0.0,Chandanagar
+2020-03-13,0.0,0.0,Chandanagar
+2020-03-14,1.0,0.0,Chandanagar
+2020-03-15,1.0,0.0,Chandanagar
+2020-03-16,0.0,0.0,Chandanagar
+2020-03-17,3.0,0.0,Chandanagar
+2020-03-18,1.0,0.0,Chandanagar
+2020-03-19,0.0,1.0,Chandanagar
+2020-03-20,4.0,0.0,Chandanagar
+2020-03-21,3.0,1.0,Chandanagar
+2020-03-22,5.0,0.0,Chandanagar
+2020-03-23,29.0,0.0,Chandanagar
+2020-03-24,16.0,0.0,Chandanagar
+2020-03-25,2.0,0.0,Chandanagar
+2020-03-26,20.0,2.0,Chandanagar
+2020-03-27,6.0,0.0,Chandanagar
+2020-03-28,10.0,0.0,Chandanagar
+2020-03-29,14.0,3.0,Chandanagar
+2020-03-30,0.0,0.0,Chandanagar
+2020-03-31,0.0,0.0,Chandanagar
+2020-04-01,28.0,1.0,Chandanagar

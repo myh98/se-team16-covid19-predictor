@@ -7,6 +7,7 @@ from accounts.models import ishospital,hospitalinfo
 from django.http import HttpResponse
 from django.contrib import messages
 from pymongo import MongoClient, errors
+from se.settings import BASE_DIR
 
 import pandas as pd
 import os
@@ -97,7 +98,10 @@ def signup_government(request):
         return render(request,'signup_government.html')
 
     
-
+@csrf_exempt
+def logout(request):
+    auth.logout(request)
+    return redirect('signin')
 
 @csrf_exempt
 def signin(request):
@@ -110,8 +114,34 @@ def signin(request):
             messages.info(request,"Register first!!")
             return redirect('signin')
 
+
+        # if obj.password != password:
+        #     messages.info(request,"Invalid credentials!!")
+        #     return redirect('signin')
+
+        user1=auth.authenticate(username=username,password=password)
+        if user1 == None:
+            messages.info(request,"Invalid credentials1!!")
+            return redirect('signin')
+
+
+
+
         obj1=User.objects.get(username=username)
-        user1=ishospital.objects.get
+        hospital_check=ishospital.objects.get(username=obj1.username)
+
+        if(hospital_check.hospital):  # redirected to hospital.
+            auth.login(request,user1)
+            return redirect('homehospital')
+
+        else: # redirected to government.
+            auth.login(request,user1)
+            return redirect('homegovernment')
+
+        
+
+
+
 
 
         # if obj1.password != password:
@@ -181,17 +211,19 @@ def zonaldata(request):
 def showrequest(request):
     # TO DO fetch requests data  here
     # here l is the no of database rows
-    
+    db=mongo_DB()
+    db_rows=db.entire_collection("request_details")
     obj=[]
-    obj1={'zone':'z','hospital':'h','beds':10,'ventilators':15,'ppe':20,'date':'12-02-2020'}
-    obj2={'zone':'z2','hospital':'h2','beds':10,'ventilators':15,'ppe':20,'date':'12-02-2020'}
-    obj3={'zone':'z3','hospital':'h3','beds':10,'ventilators':15,'ppe':20,'date':'12-02-2020'}
-    obj4={'zone':'z4','hospital':'h4','beds':10,'ventilators':15,'ppe':20,'date':'12-02-2020'}
-    obj.append(obj1)
-    obj.append(obj2)
-    obj.append(obj3)
-    obj.append(obj4)
-
+    
+    for x in db_rows:
+    	zone=x['zone']
+    	hospital_name=x['hospit_name']
+    	beds=x['beds']
+    	vent=x['vent']
+    	ppe_stock=x['ppe_stock']
+    	date=x['date']
+    	obj1={'zone':zone,'hospital':hospital_name,'beds':int(beds),'ventilators':int(vent),'ppe':int(ppe_stock),'date':date}
+    	obj.append(obj1)
 
     request_data={'iterator':[]}
     request_data['iterator']=obj
@@ -218,10 +250,27 @@ def heatmap(request):
 
 @csrf_exempt
 def homehospital(request):
-    return render(request,'homehospital.html')
+
+    if not request.user.is_authenticated :  # login check
+        return redirect('signin')
+
+    username=request.user.username
+    print("user name",username)
+    hospital_obj=hospitalinfo.objects.get(username=username)
+    hospital_name=hospital_obj.hospitalname
+    auth.logout(request)
+
+
+
+
+    return render(request,'homehospital.html',{'hospital_name':hospital_name})
 
 @csrf_exempt
 def homegovernment(request):
+
+    # if not request.user.is_authenticated :  # login check
+    #     return redirect('signin')
+ 
     return render(request,'homegovernment.html')
 
 @csrf_exempt
@@ -348,7 +397,23 @@ def weeklypre(request):
         print("zonename1",zonename)
         print("date1",date)
 
-        x={"zonename":zonename,"data_list":[20,25,40,50,80,120,150]}
+        md = mongo_DB()
+        new_list = []
+        death_list = []
+        check_entry = {'zone':zonename}
+        cursor_rcvd = md.retrieveZoneData("output_details", check_entry)
+
+        for entry in cursor_rcvd:
+            for i in range(1,8):
+                col = str(i)+"_x"
+                new_list.append(entry[col])
+                col = str(i)+"_y"
+                death_list.append(entry[col])
+        print(new_list)
+        # print(death_list)
+
+        x={"zonename":zonename,"data_list":new_list}
+        y={"zonename":zonename,"data_list":death_list}
 
         # update dictionary x's data_list field and put real data from database
 
@@ -357,4 +422,5 @@ def weeklypre(request):
 
     else:
         return render(request,'weeklypre.html')  
+
 

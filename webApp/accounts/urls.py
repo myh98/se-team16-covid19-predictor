@@ -16,7 +16,14 @@ urlpatterns = [
     path('zonaldata',views.zonaldata,name='zonaldata'),
     path('showrequest',views.showrequest,name='showrequest'),
     path('weeklypre',views.weeklypre,name="weeklypre"),
+
+
+
+    path('logout',views.logout,name="logout"),
     path('heatmap',views.heatmap,name="heatmap")
+
+    
+
 
 
 

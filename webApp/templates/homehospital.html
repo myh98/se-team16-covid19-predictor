@@ -1,5 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
+
+
 <html lang="en" dir="">
 
     <head>
@@ -134,7 +136,7 @@
                                 </div>
                                 <a class="dropdown-item">Account settings</a>
                                 <!-- <a class="dropdown-item">Billing history</a> -->
-                                <a class="dropdown-item" href="signin.html">Sign out</a>
+                                <a class="dropdown-item" href="logout">Sign out</a>
                             </div>
                         </div>
                     </div>
@@ -323,7 +325,7 @@
             <!-- ============ Body content start ============= -->
             <div class="main-content-wrap sidenav-open d-flex flex-column">
                 <div class="breadcrumb">
-                    <h1 class="mr-2">Version 1</h1>
+                    <h1 class="mr-2">{{hospital_name}}</h1>
 <!--                     <ul>
                         <li><a href="">Dashboard</a></li>
                         <li>Version 1</li>
