@@ -6,7 +6,7 @@ db=mongo_DB()
 
 df=pd.read_csv("final_dataset.csv")
 output_values=df.to_numpy()
-print(output_values.shape)
+# print(output_values.shape)
 
 for i in range(output_values.shape[0]):
 	x_val=[] #predicted new cases
