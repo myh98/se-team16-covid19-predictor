@@ -13,15 +13,15 @@ class mongo_DB:
         # self.db.cl_name.insert_one(db_entry)
 
         if cl_name=="patient_details":
-            db_entry['date']=self.getDate(db_entry['date'])
+            # db_entry['date']=self.getDate(db_entry['date'])
             self.db.patient_details.insert_one(db_entry)
 
         elif cl_name=="equipment_details":
-            db_entry['date']=self.getDate(db_entry['date'])
+            # db_entry['date']=self.getDate(db_entry['date'])
             self.db.equipment_details.insert_one(db_entry)
 
         elif cl_name=="request_details":
-            db_entry['date']=self.getDate(db_entry['date'])
+            # db_entry['date']=self.getDate(db_entry['date'])
             self.db.request_details.insert_one(db_entry)
 
         elif cl_name=="output_details":
@@ -32,7 +32,7 @@ class mongo_DB:
 
 
     def check_perDayEntry(self,cl_name,check_entry): # for check entry enter hospit_name zone and date 
-        check_entry['date']=self.getDate(check_entry['date'])
+        # check_entry['date']=self.getDate(check_entry['date'])
         if cl_name=="patient_details":
             
             return (self.db.patient_details.count_documents(check_entry)==1)
@@ -53,7 +53,7 @@ class mongo_DB:
             #received values
             
             zone=updated_entry['zone']
-            date_query = self.getDate(updated_entry['date'])
+            date_query = updated_entry['date']
 
             #find old values
             db_values=self.db.zone_data.find({'zone':zone, 'date':date_query})
@@ -74,7 +74,7 @@ class mongo_DB:
             #received values
             
             zone=updated_entry['zone']
-            date_query = self.getDate(updated_entry['date'])
+            date_query = updated_entry['date']
 
             #find old values
             db_values=self.db.zone_data.find({'zone':zone, 'date':date_query})
@@ -129,10 +129,10 @@ class mongo_DB:
         else:
             return False
 
-    def getDate(self,date):
-        li = date.split("-")
-        li.reverse()
-        return "/".join(li)
+    # def getDate(self,date):
+    #     li = date.split("-")
+    #     li.reverse()
+    #     return "/".join(li)
 
     def delete(self,cl_name,db_entry):
         if cl_name=="patient_details":
@@ -160,7 +160,7 @@ class mongo_DB:
     def retrieveZoneData(self, cl_name, check_entry):
 
         if(cl_name == "zone_data"):
-            date_query = self.getDate(check_entry['date'])
+            date_query = check_entry['date']
             return self.db.zone_data.find_one({'zone':check_entry['zone'], 'date':date_query})
 
         elif cl_name == "output_details":
