@@ -6,7 +6,7 @@ port=27017
 class mongo_DB:
 
     def __init__(self):
-        self.connection=MongoClient("mongodb://hospit:1234@127.0.0.1/hospit_db")
+        self.connection=MongoClient("mongodb://jyoti:1234@127.0.0.1/hospit_db")
         self.db=self.connection.hospit_db
 
     def insert(self,cl_name,db_entry):
