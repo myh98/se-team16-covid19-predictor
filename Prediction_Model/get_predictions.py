@@ -39,7 +39,7 @@ def process_zonal_file(path):
 
 def main():
     """ Main Function """
-    process_zonal_file("data_files/my_final_sample.csv")
+    process_zonal_file("Input File/my_final_sample.csv")
 
     cases = ["python", "cases_trainer.py", "--test"]
     deaths = ["python", "deaths_trainer.py", "--test"]
