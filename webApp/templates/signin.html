@@ -12,10 +12,14 @@
 </head>
 
 <body class="text-left">
-    <div class="auth-layout-wrap" style="background-image: url({% static 'images/photo-wide-4.jpg' %})">
+    <div class="auth-layout-wrap" style="background-size: cover;background-image: url({% static 'images/tmp5.jpg' %})">
+    {% comment %} images/tmp2.jpg {% endcomment %}
         <div class="auth-content">
             <div class="card o-hidden">
-                <div class="row">
+                <div class="row", style="background-size: cover; ">
+                {% comment %} background-image: url({% static 'images/tmp7.jpg' %}) {% endcomment %}
+
+                    {% comment %} Sign in's half div {% endcomment %}
                     <div class="col-md-6">
                         <div class="p-4">
                             <div class="auth-logo text-center mb-4">
@@ -48,7 +52,9 @@
 
                         </div>
                     </div>
-                    <div class="col-md-6 text-center " style="background-size: cover;background-image: url({% static 'images/photo-long-3.jpg' %})">
+                    {% comment %} Sign Up's half div {% endcomment %}
+                    <div class="col-md-6 text-center " style="background-size: cover;">
+                    {% comment %} background-image: url({% static 'images/photo-long-3.jpg' %}) {% endcomment %}
                         <div class="pr-3 auth-right">
                             <a class="btn btn-rounded btn-outline-primary btn-outline-email btn-block btn-icon-text" href="signup_government">
                                 <i class="i-Mail-with-At-Sign"></i> Sign Up as Government Official

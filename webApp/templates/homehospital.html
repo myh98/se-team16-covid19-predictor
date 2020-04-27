@@ -324,7 +324,7 @@
 
             <!-- ============ Body content start ============= -->
             <div class="main-content-wrap sidenav-open d-flex flex-column">
-                <div class="breadcrumb">
+                {% comment %} <div class="breadcrumb">
                     <h1 class="mr-2">{{hospital_name}}</h1>
 <!--                     <ul>
                         <li><a href="">Dashboard</a></li>
@@ -332,11 +332,11 @@
                     </ul> -->
                 </div>
 
-                <div class="separator-breadcrumb border-top"></div>
+                <div class="separator-breadcrumb border-top"></div> {% endcomment %}
 
 
 
-                <div class="row">
+                {% comment %} <div class="row">
                     <div class="col-lg-8 col-md-12">
                         <div class="card mb-4">
                             <div class="card-body">
@@ -347,6 +347,18 @@
                         </div>
 
                     </div>
+                </div> {% endcomment %}
+
+                <div class="col-md-12">
+                    <img src="{% static 'images/hosp2.jpg' %}" style="width:100%">
+                    {% comment %} <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="card-title">This Year Sales</div>
+                            <div id="echartBar" style="height: 300px;"></div>
+
+                        </div>
+                    </div> {% endcomment %}
+
                 </div>
 
  <!--                <div class="row">
@@ -369,7 +381,7 @@
 
 
 
-                <div class="card mb-4">
+                {% comment %} <div class="card mb-4">
                     <div class="card-body p-0">
                         <div class="card-title border-bottom d-flex align-items-center m-0 p-3">
                             <span>User activity</span>
@@ -421,7 +433,7 @@
 
                     </div>
                 </div>
-
+ {% endcomment %}
 
 
                 {% comment %} <!-- Footer Start -->
