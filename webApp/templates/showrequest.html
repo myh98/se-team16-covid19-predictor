@@ -287,7 +287,7 @@
                                 <table id="user_table" class="table dataTable-collapse text-center">
                                     <thead>
                                         <tr>
-                                            <th scope="col">#</th>
+                                            <!-- <th scope="col">#</th> -->
                                             <th scope="col">Date</th>
                                             <th scope="col">Zone</th>
                                             <th scope="col">Hospital</th>
@@ -301,7 +301,7 @@
 
                                         {% for it in iterator%}
                                         <tr>
-                                            <th scope="row">*</th>
+                                            <!-- <th scope="row">*</th> -->
                                             <td>{{it.date}}</td>
                                             <td>{{it.zone}}</td>
 
@@ -313,9 +313,81 @@
                                                 {% comment %} <a href="#" class="text-success mr-2">
                                                     <i class="nav-icon i-Pen-2 font-weight-bold"></i>
                                                 </a> {% endcomment %}
-                                                <a href="#" class="text-danger mr-2">
-                                                    <i class="nav-icon i-Close-Window font-weight-bold"></i>
-                                                </a>
+
+
+                                                <script src="{% static 'js/vendor/jquery-3.3.1.min.js' %}"></script>
+                                                <script src="{% static 'js/vendor/bootstrap.bundle.min.js' %}"></script>
+                                                <script src="{% static 'js/vendor/perfect-scrollbar.min.js' %}"></script>
+                                                <script src="{% static 'js/vendor/echarts.min.js' %}"></script>
+
+                                                
+                                                <script src="{% static 'js/vendor/datatables.min.js' %}"></script>
+                                                <script src="{% static 'js/vendor/apexcharts.min.js' %}"></script>     <!-- check this js for circule chart -->
+                                                <script src="{% static 'js/es5/dashboard.v2.script.min.js' %}"></script>
+
+                                                <script src="{% static 'js/es5/echart.options.min.js' %}"></script>
+                                                <script src="{% static 'js/es5/dashboard.v1.script.min.js' %}"></script>
+                                                <script src="{% static 'js/es5/script.min.js' %}"></script>
+                                                <script src="{% static 'js/es5/sidebar.large.script.min.js' %}"></script>
+
+                                                <!-- <a  href="" id="reject"  >Reject</a> -->
+                                                <button id="reject_{{it.hospital}}">reject</button>
+                                                <!-- <a  href="" id="accept"  >Accept</a> -->
+<!-- 
+                                                <script >
+                                                      function clear() {
+                                                                            alert('clear');
+                                                                          }
+                                                     document.getElementById("reject").addEventListener("click", clear);                                                                  
+                                                </script> -->
+
+                                                <script>
+                                                    function setGetParameter(){
+                                                        alert("success");
+                                                        // var search_word = $("#search").val();
+                                                        var date="{{it.date}}";
+                                                        var zone="{{it.zone}}";
+                                                        var hospital="{{it.hospital}}";
+
+                                                        // alert(zone);
+
+                                                        $.ajax({
+                                                          type: "POST",
+                                                          url: 'deleterequest',
+                                                          // "abc": "xyz",
+                                                          data: {'date':date,'zone':zone,'hospital':hospital},
+                                                          success: function(result){
+                                                            // alert("Success");
+                                                          }
+                                                        });
+                                                    }
+                                                    document.getElementById("reject_{{it.hospital}}").addEventListener("click", setGetParameter);
+                                                </script>
+
+<!--                                                 <script>
+                                                    function setGetParameter(){
+                                                        // alert("");
+                                                        // var search_word = $("#search").val();
+                                                        var date="{{it.date}}";
+                                                        var zone="{{it.zone}}";
+                                                        var hospital="{{it.hospital}}";
+
+                                                        // alert(zone);
+
+                                                        $.ajax({
+                                                          type: "POST",
+                                                          url: 'deleterequest',
+                                                          // "abc": "xyz",
+                                                          data: {'date':date,'zone':zone,'hospital':hospital},
+                                                          success: function(result){
+                                                            // alert("Success");
+                                                          }
+                                                        });
+                                                    }
+                                                    document.getElementById("accept").addEventListener("click", setGetParameter);
+                                                </script> -->
+
+
                                             </td>
                                         </tr>
                                         {% endfor %}
