@@ -436,7 +436,9 @@ def deleterequest(request):
         print("zone :",zone)
 
         # TO DO row deletion.
-
+        db_entry={'hospit_name':hospital,"date":date,"zone":zone}
+        db=mongo_DB()
+        db.delete("request_details",db_entry)
         
 
 
