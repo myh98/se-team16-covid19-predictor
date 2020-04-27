@@ -126,6 +126,9 @@ class mongo_DB:
                 db_entry={'zone':z,'active':0,'recovered':0,'death':0,'empty_beds':0,'empty_ven':0,'ppe_stock':0}
                 self.db.zone_data.insert_one(db_entry)
 
+        elif cl_name=='request_details':
+            self.db.request_details.drop()
+        
         else:
             return False
 
