@@ -330,122 +330,260 @@
             </div>
             <!--=============== Left side End ================-->
 
+
+
             <!-- ============ Body content start ============= -->
-            <div class="main-content-wrap sidenav-open d-flex flex-column">
-                {% comment %} <div class="breadcrumb">
-                    <h1 class="mr-2">{{hospital_name}}</h1>
-<!--                     <ul>
+
+             <div class="main-content-wrap sidenav-open d-flex flex-column">
+<!--                 <div class="breadcrumb">
+                    <h1 class="mr-2">Version 1</h1>
+                    <ul>
                         <li><a href="">Dashboard</a></li>
                         <li>Version 1</li>
-                    </ul> -->
-                </div>
+                    </ul>
+                </div> -->
 
-                <div class="separator-breadcrumb border-top"></div> {% endcomment %}
+                <div class="separator-breadcrumb border-top"></div>
 
-
-
-                {% comment %} <div class="row">
-                    <div class="col-lg-8 col-md-12">
-                        <div class="card mb-4">
-                            <div class="card-body">
-                                <div class="card-title">This Year Sales</div>
-                                <div id="echartBar" style="height: 300px;"></div>
-
-                            </div>
-                        </div>
-
-                    </div>
-                </div> {% endcomment %}
 
                 <div class="col-md-12">
-                    <img src="{% static 'images/hosp2.jpg' %}" style="width:100%">
-                    {% comment %} <div class="card mb-4">
+                    <div class="card mb-4">
                         <div class="card-body">
-                            <div class="card-title">This Year Sales</div>
-                            <div id="echartBar" style="height: 300px;"></div>
+                            <div class="card-title mb-3">Select Zone</div>
+                            <form action="weeklypre" method="post"> 
+                            {% comment %} After clicking on submit, redirect to hosme hospital {% endcomment %}
+                                <div class="row">
 
+
+                                    <div class="col-md-6 form-group mb-3">
+                                        <label for="picker1">Zone</label>
+                                        <select class="form-control form-control-rounded" name="zone">
+                                            <option>Alwal</option>
+                                            <option>Amberpet</option>
+                                            <option>Begumpet</option>
+                                            <option>Begumpet</option>
+                                            <option>Chandanagar</option>
+                                            <option>Chandrayangutta</option>
+                                            <option>Charminar</option>
+                                            <option>Falakunuma</option>
+                                            <option>Gajula Ramaram</option>
+                                            <option>Goshamahal</option>
+                                            <option>Hayathnagar</option>
+                                            <option>Jubilee Hills</option>
+                                            <option>Kapra</option>
+                                            <option>Karwan</option>
+                                            <option>Khairatabad</option>
+                                            <option>Kukatpally</option>
+                                            <option>LB Nagar</option>
+                                            <option>Malakpet</option>
+                                            <option>Malkajgiri</option>
+                                            <option>Mehdipatnam</option>
+                                            <option>Moosapet</option>
+                                            <option>Musheerabad</option>
+                                            <option>Quthbullapur</option>
+                                            <option>Rajendra Nagar</option>
+                                            <option>Ramachandra Puram / Patancheru</option>
+                                            <option>Santhoshnagar</option>
+                                            <option>Saroornagar</option>
+                                            <option>Secunderabad Division</option>
+                                            <option>Serilingampally</option>
+                                            <option>Uppal</option>
+                                            <option>Yousufguda</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-md-6 form-group mb-3">
+                                        <label for="picker3">Date</label>
+                                        <input type=date id="picker3" class="form-control form-control-rounded" placeholder="yyyy-mm-dd" name="date">
+                                    </div>
+
+
+
+
+                                    <div class="col-md-12">
+                                        <button class="btn btn-primary">Submit</button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                    </div> {% endcomment %}
-
-                </div>
-
- <!--                <div class="row">
-                  <div class="column" > 
-                    <img src="{% static 'images/logo1.png' %}" alt="" style="width:100%">
-                  </div>
-                  <div class="column">
-                    <img src="{% static 'images/logo1.png' %}" alt="" style="width:100%">
-                  </div>
-                  <div class="column">
-                    <img src="{% static 'images/logo1.png' %}"alt="" style="width:100%">
-                  </div>
-                </div> 
-
-                <style>
-                  column { float: left; width: 33.33%; padding: 5px}
-                  row::after {content: "";clear: both;isplay: table}
-
-                </style> -->
-
-
-
-                {% comment %} <div class="card mb-4">
-                    <div class="card-body p-0">
-                        <div class="card-title border-bottom d-flex align-items-center m-0 p-3">
-                            <span>User activity</span>
-                            <span class="flex-grow-1"></span>
-                            <span class="badge badge-pill badge-warning">Updated daily</span>
-                        </div>
-                        <div class="d-flex border-bottom justify-content-between p-3">
-                            <div class="flex-grow-1">
-                                <span class="text-small text-muted">Pages / Visit</span>
-                                <h5 class="m-0">2065</h5>
-                            </div>
-                            <div class="flex-grow-1">
-                                <span class="text-small text-muted">New user</span>
-                                <h5 class="m-0">465</h5>
-                            </div>
-                            <div class="flex-grow-1">
-                                <span class="text-small text-muted">Last week</span>
-                                <h5 class="m-0">23456</h5>
-                            </div>
-                        </div>
-                        <div class="d-flex border-bottom justify-content-between p-3">
-                            <div class="flex-grow-1">
-                                <span class="text-small text-muted">Pages / Visit</span>
-                                <h5 class="m-0">1829</h5>
-                            </div>
-                            <div class="flex-grow-1">
-                                <span class="text-small text-muted">New user</span>
-                                <h5 class="m-0">735</h5>
-                            </div>
-                            <div class="flex-grow-1">
-                                <span class="text-small text-muted">Last week</span>
-                                <h5 class="m-0">92565</h5>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-between p-3">
-                            <div class="flex-grow-1">
-                                <span class="text-small text-muted">Pages / Visit</span>
-                                <h5 class="m-0">3165</h5>
-                            </div>
-                            <div class="flex-grow-1">
-                                <span class="text-small text-muted">New user</span>
-                                <h5 class="m-0">165</h5>
-                            </div>
-                            <div class="flex-grow-1">
-                                <span class="text-small text-muted">Last week</span>
-                                <h5 class="m-0">32165</h5>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
- {% endcomment %}
+
+
+
+
+
+                <div class="row">
+  
+
+                    <div class=" col-md-6">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <div class="card-title"> Predictions</div>
+                                <div id="predictionchart"></div>
+
+                                    <script src="{% static 'js/vendor/jquery-3.3.1.min.js' %}"></script>
+                                    <script src="{% static 'js/vendor/bootstrap.bundle.min.js' %}"></script>
+                                    <script src="{% static 'js/vendor/perfect-scrollbar.min.js' %}"></script>
+                                    <script src="{% static 'js/vendor/echarts.min.js' %}"></script>
+                                    <script src="{% static 'js/vendor/apexcharts.dataseries.js' %}"></script>
+                                    <script src="{% static 'js/vendor/datatables.min.js' %}"></script>
+                                    <script src="{% static 'js/vendor/apexcharts.min.js' %}"></script>     <!-- check this js for circule chart -->
+                                    <script src="{% static 'js/es5/dashboard.v2.script.min.js' %}"></script>
+
+                                    <script src="{% static 'js/es5/echart.options.min.js' %}"></script>
+                                    <script src="{% static 'js/es5/dashboard.v1.script.min.js' %}"></script>
+                                    <script src="{% static 'js/es5/script.min.js' %}"></script>
+                                    <script src="{% static 'js/es5/sidebar.large.script.min.js' %}"></script>
+
+                                    <script src="{% static 'js/es5/apexColumnChart.script.min.js' %}"></script> <!-- for prediction chart -->
+                                    <script>
+
+                                        var options = {
+                                            chart: {
+                                                height: 350,
+                                                type: 'bar',
+                                                toolbar: {
+                                                    show: false
+                                                }
+                                            },
+                                            plotOptions: {
+                                                bar: {
+                                                    dataLabels: {
+                                                        position: 'border-top' // top, center, bottom
+                                                    },
+                                                    endingShape: 'rounded'
+                                                }
+                                            },
+                                            colors: ['#03A9F4'],
+                                            dataLabels: {
+                                                enabled: true,
+                                                formatter: function formatter(val) {
+                                                    return val ;
+                                                },
+                                                offsetY: -20,
+                                                style: {
+                                                    fontSize: '12px',
+                                                    colors: ["#333"]
+                                                }
+                                            },
+                                            series: [{
+                                                name: 'Inflation',
+                                                data: [40,45,50,51,60,65,70]
+                                            }],
+                                            xaxis: {
+                                                categories: ["day1", "day2", "day3", "day4", "day5", "day6", "day7"],
+                                                position: 'top',
+                                                labels: {
+                                                    offsetY: -18
+
+                                                },
+                                                axisBorder: {
+                                                    show: false
+                                                },
+                                                axisTicks: {
+                                                    show: false
+                                                },
+
+                                                tooltip: {
+                                                    enabled: true,
+                                                    offsetY: -35
+
+                                                }
+                                            },
+                                            fill: {
+                                                gradient: {
+                                                    shade: 'light',
+                                                    type: "horizontal",
+                                                    shadeIntensity: 0.25,
+                                                    gradientToColors: '#639',
+                                                    inverseColors: true,
+                                                    opacityFrom: 1,
+                                                    opacityTo: 1,
+                                                    stops: [50, 0, 100, 1000]
+                                                }
+                                            },
+                                            yaxis: {
+                                                axisBorder: {
+                                                    show: false
+                                                },
+                                                axisTicks: {
+                                                    show: false
+                                                },
+                                                labels: {
+                                                    show: false,
+                                                    formatter: function formatter(val) {
+                                                        return val ;
+                                                    }
+                                                }
+
+                                            },
+                                            title: {
+                                                text: 'One Week Prediction',
+                                                floating: true,
+                                                offsetY: 320,
+                                                align: 'center',
+                                                style: {
+                                                    color: '#444'
+                                                }
+                                            }
+                                        };
+                                        
+                                        options['series'][0]['data']={{data_list}};
+
+                                        var chart = new ApexCharts(document.querySelector("#predictionchart"), options);
+
+                                        chart.render();
+                                    
+
+
+                                    </script>>
+
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class=" col-md-6">
+                        <div class="card mb-4">
+                            <div class="card-body p-0">
+                                <h5 class="card-title m-0 p-3">Predictions</h5>
+                                <div id="echart_custom2" style="height: 300px"></div>
+                                    <script src="{% static 'js/vendor/jquery-3.3.1.min.js' %}"></script>
+                                    <script src="{% static 'js/vendor/bootstrap.bundle.min.js' %}"></script>
+                                    <script src="{% static 'js/vendor/perfect-scrollbar.min.js' %}"></script>
+                                    <script src="{% static 'js/vendor/echarts.min.js' %}"></script>
+
+                                    
+                                    <script src="{% static 'js/vendor/datatables.min.js' %}"></script>
+                                    <script src="{% static 'js/vendor/apexcharts.min.js' %}"></script>     <!-- check this js for circule chart -->
+                                    <script src="{% static 'js/es5/dashboard.v2.script.min.js' %}"></script>
+
+                                    <script src="{% static 'js/es5/echart.options.min.js' %}"></script>
+                                    <script src="{% static 'js/es5/dashboard.v1.script.min.js' %}"></script>
+                                    <script src="{% static 'js/es5/script.min.js' %}"></script>
+                                    <script src="{% static 'js/es5/sidebar.large.script.min.js' %}"></script>
+                                    <script >
+                                    var e=document.getElementById("echart_custom2");
+                                    if(e){var t=echarts.init(e);
+                                        t.setOption(_extends({},echartOptions.lineNoAxis,{series:[{data:{{data_list1}},lineStyle:{color:"rgba(102, 51, 153, .86)",width:3,shadowColor:"rgba(0, 0, 0, .2)",shadowOffsetX:-1,shadowOffsetY:8,shadowBlur:10},label:{show:!0,color:"#212121"},type:"line",smooth:!0,itemStyle:{borderColor:"rgba(69, 86, 172, 0.86)"}}]},{xAxis:{data:["Mon","Tue","Wed","Thu","Fri","Sat","Sun"]}})),$(window).on("resize",function(){setTimeout(function(){t.resize()},500)})}
+                                     </script>
+
+
+                            </div>
+                        </div>
+                    </div>
+            </div>
+
+
+
 
 
                 {% comment %} <!-- Footer Start -->
-                <div class="flex-grow-1"></div>
+                <!-- <div class="flex-grow-1"></div> -->
                 <div class="app-footer">
                     <div class="row">
                         <div class="col-md-9">
@@ -462,6 +600,12 @@
                 </div>
                 <!-- fotter end --> {% endcomment %}
             </div>
+ 
+
+
+
+        
+
             <!-- ============ Body content End ============= -->
         </div>
         <!--=============== End app-admin-wrap ================-->

@@ -424,6 +424,42 @@ def weeklypre(request):
         return render(request,'weeklypre.html')  
 
 @csrf_exempt
+def hospitalpred(request):
+    if request.method=="POST":
+        zonename=request.POST['zone']
+        date=request.POST['date']
+
+        # use zonename and date to retrieve data from data base
+        print("zonename1",zonename)
+        print("date1",date)
+
+        md = mongo_DB()
+        new_list = []
+        death_list = []
+        check_entry = {'zone':zonename}
+        cursor_rcvd = md.retrieveZoneData("output_details", check_entry)
+
+        for entry in cursor_rcvd:
+            for i in range(1,8):
+                col = str(i)+"_x"
+                new_list.append(entry[col])
+                col = str(i)+"_y"
+                death_list.append(entry[col])
+        print(new_list)
+        # print(death_list)
+
+        x={"zonename":zonename,"data_list":new_list,"data_list1":death_list}
+        # y={"zonename":zonename,"data_list":death_list}
+
+        # update dictionary x's data_list field and put real data from database
+
+        return render(request,'hospitalpred1.html',x)
+
+
+    else:
+        return render(request,'hospitalpred.html')  
+
+@csrf_exempt
 def deleterequest(request):
     
     if request.method == "POST":

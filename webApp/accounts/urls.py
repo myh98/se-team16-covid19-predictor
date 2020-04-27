@@ -22,6 +22,8 @@ urlpatterns = [
     path('logout',views.logout,name="logout"),
     path('heatmap',views.heatmap,name="heatmap"),
     path('deleterequest',views.deleterequest,name="deleterequest"),
+    path('hospitalpred',views.hospitalpred,name="hospitalpred")
+
 
 
 
