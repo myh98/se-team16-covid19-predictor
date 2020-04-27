@@ -218,7 +218,7 @@
                     </ul>
                     <ul class="childNav" data-parent="Heat-map">
                         <li class="nav-item">
-                            <a href="">
+                            <a href="heatmap">
                                 <i class="nav-icon i-File-Clipboard-Text--Image"></i>
                                 <span class="item-name">Heat Maps</span>
                             </a>
@@ -324,7 +324,7 @@
                     <div class=" col-md-6">
                         <div class="card mb-4">
                             <div class="card-body">
-                                <div class="card-title"> Zone {{zonename}} next 7 days predictions:</div>
+                                <div class="card-title"> Zone {{zonename}}'s Active Cases Predictions:</div>
                                 <div id="predictionchart"></div>
 
                                     <script src="{% static 'js/vendor/jquery-3.3.1.min.js' %}"></script>
@@ -452,10 +452,11 @@
                         </div>
                     </div>
 
+
                     <div class=" col-md-6">
                         <div class="card mb-4">
                             <div class="card-body ">
-                                <h5 class="card-title m-0 p-3">Graph Form</h5>
+                                <h5 class="card-title m-0 p-3">Death predictions </h5>
                                 <div id="echart_custom2" style="height: 300px"></div>
                                     <script src="{% static 'js/vendor/jquery-3.3.1.min.js' %}"></script>
                                     <script src="{% static 'js/vendor/bootstrap.bundle.min.js' %}"></script>
@@ -474,7 +475,7 @@
                                     <script >
                                     var e=document.getElementById("echart_custom2");
                                     if(e){var t=echarts.init(e);
-                                        t.setOption(_extends({},echartOptions.lineNoAxis,{series:[{data:{{data_list}},lineStyle:{color:"rgba(102, 51, 153, .86)",width:3,shadowColor:"rgba(0, 0, 0, .2)",shadowOffsetX:-1,shadowOffsetY:8,shadowBlur:10},label:{show:!0,color:"#212121"},type:"line",smooth:!0,itemStyle:{borderColor:"rgba(69, 86, 172, 0.86)"}}]},{xAxis:{data:["Mon","Tue","Wed","Thu","Fri","Sat","Sun"]}})),$(window).on("resize",function(){setTimeout(function(){t.resize()},500)})}
+                                        t.setOption(_extends({},echartOptions.lineNoAxis,{series:[{data:{{data_list1}},lineStyle:{color:"rgba(102, 51, 153, .86)",width:3,shadowColor:"rgba(0, 0, 0, .2)",shadowOffsetX:-1,shadowOffsetY:8,shadowBlur:10},label:{show:!0,color:"#212121"},type:"line",smooth:!0,itemStyle:{borderColor:"rgba(69, 86, 172, 0.86)"}}]},{xAxis:{data:["Mon","Tue","Wed","Thu","Fri","Sat","Sun"]}})),$(window).on("resize",function(){setTimeout(function(){t.resize()},500)})}
                                      </script>
 
 

@@ -412,8 +412,8 @@ def weeklypre(request):
         print(new_list)
         # print(death_list)
 
-        x={"zonename":zonename,"data_list":new_list}
-        y={"zonename":zonename,"data_list":death_list}
+        x={"zonename":zonename,"data_list":new_list,"data_list1":death_list}
+        # y={"zonename":zonename,"data_list":death_list}
 
         # update dictionary x's data_list field and put real data from database
 
@@ -422,5 +422,10 @@ def weeklypre(request):
 
     else:
         return render(request,'weeklypre.html')  
+
+@csrf_exempt
+def deleterow(request):
+    
+
 
 
