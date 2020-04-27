@@ -175,7 +175,7 @@ def signin(request):
 
 
 
-        return redirect('homehospital')
+        # return redirect('homehospital')
     else:
         return render(request,'signin.html')
 
@@ -424,7 +424,29 @@ def weeklypre(request):
         return render(request,'weeklypre.html')  
 
 @csrf_exempt
-def deleterow(request):
+def deleterequest(request):
+    
+    if request.method == "POST":
+       
+        print("in if")
+        date = request.POST['date']
+        print("date :",date)
+        zone= request.POST['zone']
+        hospital=request.POST['hospital']
+        print("zone :",zone)
+
+        # TO DO row deletion.
+
+        
+
+
+        return render(request,'homegovernment.html')
+
+    else:
+        print("in else")
+        
+        return render(request,'showrequest.html')
+
     
 
 

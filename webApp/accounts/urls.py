@@ -20,7 +20,10 @@ urlpatterns = [
 
 
     path('logout',views.logout,name="logout"),
-    path('heatmap',views.heatmap,name="heatmap")
+    path('heatmap',views.heatmap,name="heatmap"),
+    path('deleterequest',views.deleterequest,name="deleterequest"),
+
+
 
     
 
