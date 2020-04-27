@@ -67,4 +67,4 @@ folium.Choropleth(
 folium.LayerControl().add_to(m)
 
 # Save to html
-m.save('example.html')
+m.save('static/example.html')

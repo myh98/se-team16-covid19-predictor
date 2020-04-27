@@ -13,7 +13,8 @@ Current_Date = Current_Date.split(" ")[0]
 # li = Current_Date.split("-")
 # li.reverse()
 # curr_date = "/".join(li)
-# print(curr_date)
+print(Current_Date)
+print(type(Current_Date))
 
 for z in zone_list:
 	# print(z)

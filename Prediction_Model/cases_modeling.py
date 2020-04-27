@@ -18,9 +18,9 @@ pd.set_option("mode.chained_assignment", None)
 
 def get_splits(path):
     """ Returns train, val and test splits. """
-    with open(os.path.join(path, "train.txt"), "r") as train_file, open(
-        os.path.join(path, "val.txt"), "r"
-    ) as val_file, open(os.path.join(path, "test.txt"), "r") as test_file:
+    with open("preprocessed_data/train.txt", "r") as train_file, open(
+        "preprocessed_data/val.txt", "r"
+    ) as val_file, open("preprocessed_data/test.txt", "r") as test_file:
         train = list(map(lambda x: int(x.strip()), train_file))
         val = list(map(lambda x: int(x.strip()), val_file))
         test = list(map(lambda x: int(x.strip()), test_file))

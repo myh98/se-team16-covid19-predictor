@@ -10,7 +10,9 @@ def model_input():
 
 def get_predictions():
 	print("in func get_predictions")
-	# os.system('python3 get_predictions.py')
+	os.system('conda activate work')
+	os.system('python3 get_predictions.py')
+	os.system('conda activate work')
 	# time.sleep(10)
 
 def model_output():
@@ -23,9 +25,9 @@ def model_output():
 # 	# os.system('ls -l')
 
 # schedule.every(1).minutes.do(init_zone)
-schedule.every().day.at("21:07").do(model_input) 
-schedule.every().day.at("21:10").do(get_predictions) 
-schedule.every().day.at("21:15").do(model_output) 
+schedule.every().day.at("07:10").do(model_input) 
+schedule.every().day.at("07:12").do(get_predictions) 
+schedule.every().day.at("07:15").do(model_output) 
 while True:
 	schedule.run_pending()
 	time.sleep(5)

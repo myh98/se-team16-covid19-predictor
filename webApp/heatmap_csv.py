@@ -63,7 +63,7 @@ def formcsv():
 	inputDF["7_y"]=y_7
 
 
-	inputDF["predicted_risks"]=predicted_risks
+	inputDF["predicted_risk"]=predicted_risks
 	inputDF["location"]=zones
 	inputDF.to_csv("final_dataset.csv",index=None)
 

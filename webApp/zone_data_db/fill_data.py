@@ -20,7 +20,7 @@ for i in range(val.shape[0]):
 	new = val[i,6]
 	ppe_stock = val[i,7]
 	zone = val[i,8]
-	db_entry={'zone':zone,'date':date,"empty_beds":empty_beds,"recovered":recovered,"death":death,"active":active,"empty_ven":empty_ven,"new":new,"ppe_stock":ppe_stock} 
+	db_entry={'zone':zone,'date':date,'empty_beds':empty_beds,'recovered':recovered,'death':death,'active':active,'empty_ven':empty_ven,'new':new,'ppe_stock':ppe_stock} 
 	db.insert("zone_data",db_entry)
 	# print(output_values[i,1])
 

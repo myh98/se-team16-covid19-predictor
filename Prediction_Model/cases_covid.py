@@ -171,7 +171,7 @@ class CovidProjection(LightningModule):
         return [optimizer], [scheduler]
 
     def __dataloader(self, geoids):
-        census_file = os.path.join(self.hparams.data_root, "census.csv")
+        census_file = "preprocessed_data/census.csv"
         covid_file = self.covid_file
         dataset = Dataset(geoids, census_file=census_file, covid_file=covid_file)
         # when using multi-node (ddp) we need to add the  datasampler
@@ -206,7 +206,7 @@ class CovidProjection(LightningModule):
 
         # data
         parser.add_argument(
-            "--data_root", default=os.path.join(root_dir, "preprocessed_data"), type=str
+            "--data_root", default="preprocessed_data", type=str
         )
 
         parser.add_argument(
